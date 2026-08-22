@@ -1,4 +1,4 @@
-﻿namespace Restaurant_Management.Forms
+﻿namespace Restaurant_Management
 {
     partial class DashboardForm
     {

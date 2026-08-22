@@ -30,10 +30,10 @@
         {
             this.lbl_title = new System.Windows.Forms.Label();
             this.lbl_email = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_email = new System.Windows.Forms.TextBox();
             this.btn_login = new System.Windows.Forms.Button();
             this.lbl_pass = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_pass = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbl_title
@@ -58,14 +58,14 @@
             this.lbl_email.Text = "Email:";
             this.lbl_email.Click += new System.EventHandler(this.label1_Click_1);
             // 
-            // textBox1
+            // txt_email
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(570, 298);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(358, 44);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txt_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_email.Location = new System.Drawing.Point(570, 298);
+            this.txt_email.Name = "txt_email";
+            this.txt_email.Size = new System.Drawing.Size(358, 44);
+            this.txt_email.TabIndex = 2;
+            this.txt_email.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btn_login
             // 
@@ -89,27 +89,29 @@
             this.lbl_pass.Text = "Password:";
             this.lbl_pass.Click += new System.EventHandler(this.label1_Click_2);
             // 
-            // textBox2
+            // txt_pass
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(570, 404);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(358, 44);
-            this.textBox2.TabIndex = 5;
+            this.txt_pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_pass.Location = new System.Drawing.Point(570, 404);
+            this.txt_pass.Name = "txt_pass";
+            this.txt_pass.Size = new System.Drawing.Size(358, 44);
+            this.txt_pass.TabIndex = 5;
+            this.txt_pass.TextChanged += new System.EventHandler(this.txt_pass_TextChanged);
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1392, 788);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txt_pass);
             this.Controls.Add(this.lbl_pass);
             this.Controls.Add(this.btn_login);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_email);
             this.Controls.Add(this.lbl_email);
             this.Controls.Add(this.lbl_title);
             this.Name = "LoginForm";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,10 +121,10 @@
 
         private System.Windows.Forms.Label lbl_title;
         private System.Windows.Forms.Label lbl_email;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.Button btn_login;
         private System.Windows.Forms.Label lbl_pass;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_pass;
     }
 }
 

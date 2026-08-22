@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Restaurant_Management.Utilities
 {
-    public static class Validate
+    public static class ValidationHelper
     {
       
             public static bool IsEmpty(string value)
