@@ -21,5 +21,11 @@ namespace Restaurant_Management.Data
 
             return user;
         }
+        public void AddUser(User user)
+        {
+            // SQL query
+            // Insert data into database
+        }
+
     }
 }
