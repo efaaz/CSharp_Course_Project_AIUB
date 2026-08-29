@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\UserRepository.cs" />
+    <Compile Include="Enums\OrderStatus.cs" />
+    <Compile Include="Enums\PaymentMethod.cs" />
+    <Compile Include="Enums\TableStatus.cs" />
     <Compile Include="Enums\UserRole.cs" />
     <Compile Include="Forms\DashboardForm.cs">
       <SubType>Form</SubType>
@@ -60,6 +63,12 @@
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Ingredient.cs" />
+    <Compile Include="Models\MenuItem.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderItem.cs" />
+    <Compile Include="Models\PaymentSlip.cs" />
+    <Compile Include="Models\RestaurantTable.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
