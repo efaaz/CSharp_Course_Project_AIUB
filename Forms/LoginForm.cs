@@ -63,12 +63,12 @@ namespace Restaurant_Management
 
             if (user != null)
             {
-                SessionManager.CurrentUser = user;
+                SessionManager.SessionLogin(user);
+                MessageBox.Show("Username: " + user.Username+ ", Email: " + user.Email + ", Role: " + user.Role);
+                //DashboardForm dashboard = new DashboardForm();
+                //dashboard.Show();
 
-                DashboardForm dashboard = new DashboardForm();
-                dashboard.Show();
-
-                this.Hide();
+                //this.Hide();
             }
             else
             {
