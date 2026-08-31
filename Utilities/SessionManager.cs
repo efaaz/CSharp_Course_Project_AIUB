@@ -10,7 +10,10 @@ namespace Restaurant_Management.Utilities
     internal class SessionManager
     {
         public static User CurrentUser { get; set; }
-
+        public static void SessionLogin(User user)
+        {
+            CurrentUser = user;
+        }
         public static bool IsLoggedIn()
         {
             return CurrentUser != null;
