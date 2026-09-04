@@ -14,6 +14,6 @@ namespace Restaurant_Management.Models
         public int UserId { get; set; }
         public DateTime OrderDate { get; set; }
         public OrderStatus Status { get; set; }
-        public decimal Total { get; set; }
+        public decimal TotalPrice { get; set; }
     }
 }

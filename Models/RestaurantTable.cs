@@ -12,6 +12,6 @@ namespace Restaurant_Management.Models
         public int TableId { get; set; }
         public int TableNumber { get; set; }
         public int Capacity { get; set; }
-        public TableStatus Status { get; set; }
+        public TableStatus TableStatus { get; set; }
     }
 }
