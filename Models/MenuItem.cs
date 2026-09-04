@@ -7,10 +7,9 @@ namespace Restaurant_Management.Models
 {
     internal class MenuItem
     {
-        public int MenuItemId { get; set; }
+        public int ItemId { get; set; }
         public string ItemName { get; set; }
-        public string Category { get; set; }
-        public decimal Price { get; set; }
-        public bool IsAvailable { get; set; }
+        public decimal ItemPrice { get; set; }
+        public bool ItemStatus { get; set; }
     }
 }
