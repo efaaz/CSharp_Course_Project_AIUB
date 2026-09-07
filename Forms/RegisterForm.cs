@@ -1,4 +1,7 @@
-﻿using Restaurant_Management.Utilities;
+﻿using Restaurant_Management.Enums;
+using Restaurant_Management.Models;
+using Restaurant_Management.Services;
+using Restaurant_Management.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,8 +11,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Restaurant_Management.Models;
-using Restaurant_Management.Enums;
 
 namespace Restaurant_Management.Forms
 {
@@ -106,6 +107,8 @@ namespace Restaurant_Management.Forms
                 user.Role = UserRole.Chef;
             }
             user.Password = pass;
+            Authentication service = new Authentication();
+            service.Register(user);
 
         }
     }

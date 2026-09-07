@@ -9,10 +9,7 @@ namespace Restaurant_Management
 {
     internal static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
+        /// <summary>/// The main entry point for the application./// </summary>     [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
@@ -20,4 +17,5 @@ namespace Restaurant_Management
             Application.Run(new LoginForm());
         }
     }
+
 }
