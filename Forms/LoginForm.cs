@@ -1,16 +1,9 @@
-﻿using Restaurant_Management.Models;
-using Restaurant_Management.Utilities;
+﻿using Restaurant_Management.Forms;
+using Restaurant_Management.Models;
 using Restaurant_Management.Services;
+using Restaurant_Management.Utilities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Restaurant_Management
 {
@@ -48,37 +41,69 @@ namespace Restaurant_Management
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            string email = txt_email.Text.Trim();
-            string password = txt_pass.Text.Trim();
-            if (ValidationHelper.IsEmpty(email) ||
-                   ValidationHelper.IsEmpty(password))
+            string username = txt_username.Text;
+            string password = txt_pass.Text;
+
+            txt_error_username.Text = txt_error_pass.Text = "";
+
+            if (username == "")
             {
-                MessageBox.Show("Please enter email and password correctly.");
-                return;
+                txt_error_username.Text = "Please enter username correctly";
+            }
+            else if (password == "")
+            {
+                txt_error_pass.Text = "Please enter password correctly.";
             }
 
             Authentication authService = new Authentication();
 
-            User user = authService.Login(email, password);
+            User user = authService.Login(username, password);
+
 
             if (user != null)
             {
                 SessionManager.SessionLogin(user);
-                MessageBox.Show("Username: " + user.Username+ ", Email: " + user.Email + ", Role: " + user.Role);
-                //DashboardForm dashboard = new DashboardForm();
-                //dashboard.Show();
+                MessageBox.Show("Login successful! Welcome "+ SessionManager.CurrentUser.Username);
+                txt_username.Text = txt_pass.Text = "";
+               
+                //DashboardForm dashboardForm = new DashboardForm();
+                //dashboardForm.Show();
 
                 //this.Hide();
             }
             else
             {
                 MessageBox.Show("Invalid username or password.");
-            }
+                txt_username.Text = txt_pass.Text = "";
 
+            }
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void label1_Click_3(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextErrorPass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtErrorUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_register_Click(object sender, EventArgs e)
+        {
+            RegisterForm registerForm = new RegisterForm();
+            registerForm.Show();
+            this.Hide();
 
         }
     }
