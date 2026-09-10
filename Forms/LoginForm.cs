@@ -50,10 +50,15 @@ namespace Restaurant_Management
             {
                 txt_error_username.Text = "Please enter username correctly";
             }
-            else if (password == "")
+            if (password == "")
             {
                 txt_error_pass.Text = "Please enter password correctly.";
             }
+            if (username == "" || password == "")
+            {
+                return;
+            }
+
 
             Authentication authService = new Authentication();
 
@@ -64,7 +69,6 @@ namespace Restaurant_Management
             {
                 SessionManager.SessionLogin(user);
                 MessageBox.Show("Login successful! Welcome "+ SessionManager.CurrentUser.Username);
-                txt_username.Text = txt_pass.Text = "";
                
                 //DashboardForm dashboardForm = new DashboardForm();
                 //dashboardForm.Show();
@@ -74,7 +78,6 @@ namespace Restaurant_Management
             else
             {
                 MessageBox.Show("Invalid username or password.");
-                txt_username.Text = txt_pass.Text = "";
 
             }
         }

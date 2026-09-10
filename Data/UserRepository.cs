@@ -1,6 +1,7 @@
-﻿using System;
-using Restaurant_Management.Enums;
+﻿using Restaurant_Management.Enums;
 using Restaurant_Management.Models;
+using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Restaurant_Management.Data
@@ -16,6 +17,7 @@ namespace Restaurant_Management.Data
             
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.ExecuteNonQuery();
+            conn.Close();
         }
         public User GetUser(string username, string password)
         {
@@ -26,29 +28,29 @@ namespace Restaurant_Management.Data
                 "SELECT UserId, UserName, Email, Role FROM Users WHERE UserName = '" + username + "' AND Password = '" + password + "'";
 
             SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
 
-            SqlDataReader reader = cmd.ExecuteReader();
+            DataSet ds = new DataSet();
+            adp.Fill(ds);
+            DataTable table = ds.Tables[0];
 
-            if (reader.Read())
+            if (table.Rows.Count > 0)
             {
+                DataRow row = table.Rows[0];
+
                 User user = new User()
                 {
-                    UserId = Convert.ToInt32(reader["UserId"]),
-                    Username = reader["UserName"].ToString(),
-                    Email = reader["Email"].ToString(),
+                    UserId = Convert.ToInt32(row["UserId"]),
+                    Username = row["UserName"].ToString(),
+                    Email = row["Email"].ToString(),
                     Role = (UserRole)Enum.Parse(
-                            typeof(UserRole),
-                            reader["Role"].ToString()
+                        typeof(UserRole),
+                        row["Role"].ToString()
                     )
                 };
-                reader.Close();
-                conn.Close();
 
                 return user;
             }
-
-            reader.Close();
-            conn.Close();
 
             return null;
         }

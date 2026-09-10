@@ -44,7 +44,7 @@
             // 
             this.lbl_title.AutoSize = true;
             this.lbl_title.Font = new System.Drawing.Font("Arial Rounded MT Bold", 19.875F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_title.Location = new System.Drawing.Point(243, 108);
+            this.lbl_title.Location = new System.Drawing.Point(301, 136);
             this.lbl_title.Name = "lbl_title";
             this.lbl_title.Size = new System.Drawing.Size(859, 61);
             this.lbl_title.TabIndex = 0;
@@ -56,7 +56,7 @@
             this.lbl_username.AutoSize = true;
             this.lbl_username.BackColor = System.Drawing.SystemColors.Control;
             this.lbl_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_username.Location = new System.Drawing.Point(366, 265);
+            this.lbl_username.Location = new System.Drawing.Point(398, 317);
             this.lbl_username.Name = "lbl_username";
             this.lbl_username.Size = new System.Drawing.Size(182, 37);
             this.lbl_username.TabIndex = 1;
@@ -66,7 +66,7 @@
             // txt_username
             // 
             this.txt_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_username.Location = new System.Drawing.Point(576, 262);
+            this.txt_username.Location = new System.Drawing.Point(608, 314);
             this.txt_username.Name = "txt_username";
             this.txt_username.Size = new System.Drawing.Size(410, 44);
             this.txt_username.TabIndex = 2;
@@ -75,7 +75,7 @@
             // btn_login
             // 
             this.btn_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_login.Location = new System.Drawing.Point(435, 478);
+            this.btn_login.Location = new System.Drawing.Point(467, 564);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(499, 54);
             this.btn_login.TabIndex = 3;
@@ -87,7 +87,7 @@
             // 
             this.lbl_pass.AutoSize = true;
             this.lbl_pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_pass.Location = new System.Drawing.Point(366, 375);
+            this.lbl_pass.Location = new System.Drawing.Point(398, 427);
             this.lbl_pass.Name = "lbl_pass";
             this.lbl_pass.Size = new System.Drawing.Size(176, 37);
             this.lbl_pass.TabIndex = 4;
@@ -97,7 +97,7 @@
             // txt_pass
             // 
             this.txt_pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_pass.Location = new System.Drawing.Point(576, 368);
+            this.txt_pass.Location = new System.Drawing.Point(608, 420);
             this.txt_pass.Name = "txt_pass";
             this.txt_pass.Size = new System.Drawing.Size(410, 44);
             this.txt_pass.TabIndex = 5;
@@ -109,7 +109,7 @@
             this.txt_error_username.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_error_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_error_username.ForeColor = System.Drawing.Color.Red;
-            this.txt_error_username.Location = new System.Drawing.Point(576, 312);
+            this.txt_error_username.Location = new System.Drawing.Point(608, 364);
             this.txt_error_username.Name = "txt_error_username";
             this.txt_error_username.Size = new System.Drawing.Size(410, 24);
             this.txt_error_username.TabIndex = 6;
@@ -121,7 +121,7 @@
             this.txt_error_pass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_error_pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_error_pass.ForeColor = System.Drawing.Color.Red;
-            this.txt_error_pass.Location = new System.Drawing.Point(576, 418);
+            this.txt_error_pass.Location = new System.Drawing.Point(608, 470);
             this.txt_error_pass.Name = "txt_error_pass";
             this.txt_error_pass.Size = new System.Drawing.Size(410, 24);
             this.txt_error_pass.TabIndex = 7;
@@ -130,9 +130,9 @@
             // btn_register
             // 
             this.btn_register.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_register.Location = new System.Drawing.Point(435, 685);
+            this.btn_register.Location = new System.Drawing.Point(467, 737);
             this.btn_register.Name = "btn_register";
-            this.btn_register.Size = new System.Drawing.Size(499, 48);
+            this.btn_register.Size = new System.Drawing.Size(499, 54);
             this.btn_register.TabIndex = 8;
             this.btn_register.Text = "Register";
             this.btn_register.UseVisualStyleBackColor = true;
@@ -144,7 +144,7 @@
             this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label1.Location = new System.Drawing.Point(430, 635);
+            this.label1.Location = new System.Drawing.Point(462, 687);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(497, 25);
             this.label1.TabIndex = 9;
@@ -156,7 +156,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1392, 788);
+            this.ClientSize = new System.Drawing.Size(1520, 920);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_register);
             this.Controls.Add(this.txt_error_pass);
@@ -168,6 +168,7 @@
             this.Controls.Add(this.lbl_username);
             this.Controls.Add(this.lbl_title);
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);

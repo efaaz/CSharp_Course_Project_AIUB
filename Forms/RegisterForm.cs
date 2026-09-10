@@ -75,22 +75,6 @@ namespace Restaurant_Management.Forms
             pass = txtPass.Text.Trim();
 
             lblErrorName.Text = lblErrorEmail.Text = lblErrorRole.Text = lblErrorPass.Text = "";
-            if (ValidationHelper.IsEmpty(name))
-            {
-                lblErrorName.Text = "Please Enter valid User Name.";
-            }
-            if (ValidationHelper.IsEmpty(email))
-            {
-                lblErrorEmail.Text = "Please Enter Valid Email.";
-            }
-            if (ValidationHelper.IsEmpty(role))
-            {
-                lblErrorRole.Text = "Please Select Valid Role";
-            }
-            if (pass.Length < 8)
-            {
-                lblErrorPass.Text = "Please Enter Valid Password.";
-            }
 
             User user = new User();
             user.Username = name;
