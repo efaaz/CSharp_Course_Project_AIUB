@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
+
 
 namespace Restaurant_Management.Data
 {
@@ -16,8 +12,7 @@ namespace Restaurant_Management.Data
         private static readonly string ConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Restaurant Managemnet;Integrated Security=True;";
 
         // Fatema's String
-
-        //private static readonly string ConnectionString =;
+        // private static readonly string ConnectionString = "Server=DESKTOP-K846D67\\MSSQLSERVER01;Database=RestaurantManagementDB;Trusted_Connection=True;";
 
 
 
