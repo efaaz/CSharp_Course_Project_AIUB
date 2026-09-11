@@ -39,7 +39,7 @@ namespace Restaurant_Management.Forms
 
         private void lblEmail_Click(object sender, EventArgs e)
         {
-         
+
         }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
@@ -53,6 +53,16 @@ namespace Restaurant_Management.Forms
         }
 
         private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblErrorEmail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblErrorName_Click(object sender, EventArgs e)
         {
 
         }
@@ -75,13 +85,35 @@ namespace Restaurant_Management.Forms
             pass = txtPass.Text.Trim();
 
             lblErrorName.Text = lblErrorEmail.Text = lblErrorRole.Text = lblErrorPass.Text = "";
+            if (name == "")
+            {
+                lblErrorName.Text = "Please Enter Your Name!";
+            }
+            if (email == "")
+            {
+                lblErrorEmail.Text = "Please Enter Your Email!";
+            }
+            if (role == "")
+            {
+                lblErrorRole.Text = "Please Enter Select Your Role!";
+            }
+            if (pass.Length < 8)
+            {
+                lblErrorPass.Text = "Please Enter A Strong Password!";
+            }
+            if (name == "" || email == "" || role == "" || pass.Length < 8)
+            {
+                return;
+            }
+          
 
-            User user = new User();
+           User user = new User();
             user.Username = name;
             user.Email = email;
-            if (role == "Manager") {
+            if (role == "Manager")
+            {
                 user.Role = UserRole.Manager;
-                    }
+            }
             if (role == "Cashier")
             {
                 user.Role = UserRole.Cashier;
@@ -94,6 +126,11 @@ namespace Restaurant_Management.Forms
             Authentication service = new Authentication();
             service.Register(user);
 
+            LoginForm login = new LoginForm();
+            login.Show();
+            this.Hide();
         }
     }
 }
+
+    
