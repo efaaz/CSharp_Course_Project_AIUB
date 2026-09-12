@@ -13,7 +13,7 @@ namespace Restaurant_Management.Data
         {
             SqlConnection conn = DBConnection.GetConnection();
             conn.Open();
-            string query = "SELECT Status FROM Tables WHERE TableId = '" + TableId + "'";
+            string query = "SELECT Status FROM TablesInfo WHERE TableId = '" + TableId + "'";
             SqlCommand cmd = new SqlCommand(query, conn);
             
             string status = cmd.ExecuteScalar().ToString();

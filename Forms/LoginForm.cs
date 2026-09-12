@@ -69,11 +69,16 @@ namespace Restaurant_Management
             {
                 SessionManager.SessionLogin(user);
                 MessageBox.Show("Login successful! Welcome "+ SessionManager.CurrentUser.Username);
-               
+
                 //DashboardForm dashboardForm = new DashboardForm();
                 //dashboardForm.Show();
 
                 //this.Hide();
+
+
+                OrderForm orderForm = new OrderForm();
+                orderForm.Show();
+                this.Hide();
             }
             else
             {

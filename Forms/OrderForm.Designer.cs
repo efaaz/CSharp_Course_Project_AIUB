@@ -102,7 +102,6 @@
             this.txtUsername.ReadOnly = true;
             this.txtUsername.Size = new System.Drawing.Size(202, 40);
             this.txtUsername.TabIndex = 3;
-            this.txtUsername.Text = "Efaz";
             this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // txtDate
@@ -116,7 +115,6 @@
             this.txtDate.ReadOnly = true;
             this.txtDate.Size = new System.Drawing.Size(202, 40);
             this.txtDate.TabIndex = 5;
-            this.txtDate.Text = "Efaz";
             this.txtDate.TextChanged += new System.EventHandler(this.txtDate_TextChanged);
             // 
             // label4
@@ -173,10 +171,10 @@
             // 
             this.cbSelectTable.FormattingEnabled = true;
             this.cbSelectTable.Items.AddRange(new object[] {
-            "2",
-            "4",
-            "5",
-            "8"});
+            "100",
+            "101",
+            "102",
+            "103"});
             this.cbSelectTable.Location = new System.Drawing.Point(249, 487);
             this.cbSelectTable.Name = "cbSelectTable";
             this.cbSelectTable.Size = new System.Drawing.Size(156, 33);
@@ -242,7 +240,6 @@
             this.txtClickedItem.ReadOnly = true;
             this.txtClickedItem.Size = new System.Drawing.Size(202, 40);
             this.txtClickedItem.TabIndex = 15;
-            this.txtClickedItem.Text = "Burger";
             this.txtClickedItem.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // label9
@@ -259,7 +256,7 @@
             // 
             // txtQuantity
             // 
-            this.txtQuantity.BackColor = System.Drawing.SystemColors.Control;
+            this.txtQuantity.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuantity.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.txtQuantity.Location = new System.Drawing.Point(800, 740);
@@ -267,7 +264,6 @@
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(202, 40);
             this.txtQuantity.TabIndex = 17;
-            this.txtQuantity.Text = "Burger";
             this.txtQuantity.TextChanged += new System.EventHandler(this.txtQuantity_TextChanged);
             // 
             // label10
@@ -300,9 +296,10 @@
             this.txtTotalPrice.Location = new System.Drawing.Point(2058, 649);
             this.txtTotalPrice.Multiline = true;
             this.txtTotalPrice.Name = "txtTotalPrice";
+            this.txtTotalPrice.ReadOnly = true;
             this.txtTotalPrice.Size = new System.Drawing.Size(100, 40);
             this.txtTotalPrice.TabIndex = 20;
-            this.txtTotalPrice.Text = "1000";
+            this.txtTotalPrice.Text = "0";
             this.txtTotalPrice.TextChanged += new System.EventHandler(this.textBox1_TextChanged_2);
             // 
             // label11

@@ -33,7 +33,7 @@ namespace Restaurant_Management.Services
         { 
             if (!tableRepository.IsAvailable(order.TableId))
             {
-                ErrorMessage = "The selected table is not available.";
+                ErrorMessage = "The selected table is Occupied, please choose another table.";
                 return false;
             }
 

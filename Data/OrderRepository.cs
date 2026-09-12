@@ -16,16 +16,26 @@ namespace Restaurant_Management.Data
             SqlConnection conn = DBConnection.GetConnection();
             conn.Open();
 
-            string Orderquery = "insert into Orders (TableId, UserId, OrderDate, Status, TotalPrice) values(" + order.TableId + "','" + order.UserId + "','" + order.OrderDate + "','" + order.Status + "','" + order.TotalPrice + "')";
+            string orderQuery = "insert into Orders (TableId, UserId, OrderDate, Status, TotalPrice) values(" + order.TableId + ", " + order.UserId + ", " + "'" + order.OrderDate.ToString("yyyy-MM-dd HH:mm:ss") + "', " + "'" + order.Status + "', " +order.TotalPrice +")";
+            SqlCommand cmd = new SqlCommand(orderQuery, conn);
 
-            SqlCommand cmd = new SqlCommand(Orderquery, conn);
+            cmd.ExecuteNonQuery();
 
-            int orderId = Convert.ToInt32(cmd.ExecuteScalar());
+            // Get the newly inserted OrderId
+            string idQuery = "SELECT SCOPE_IDENTITY()";
+
+            SqlCommand idCommand = new SqlCommand(idQuery, conn);
+
+            int orderId = Convert.ToInt32(idCommand.ExecuteScalar());
             foreach (OrderItem item in order.Items)
             {
+                if (item == null)
+                {
+                    continue;
+                }
                 string itemQuery =
-                    "INSERT INTO OrderItem " +
-                    "(OrderId, MenuItemId, Quantity, Price) " +
+                    "INSERT INTO OrderItems " +
+                    "(OrderId, ItemId, Quantity, Price) " +
                     "VALUES (" +
                     orderId + ", " +
                     item.ItemId + ", " +
@@ -36,6 +46,12 @@ namespace Restaurant_Management.Data
 
                 itemCmd.ExecuteNonQuery();
             }
+
+            string tableQuery = "UPDATE TablesInfo SET Status = 'Occupied' WHERE TableId = " + order.TableId;
+            SqlCommand tableCmd = new SqlCommand(tableQuery, conn);
+            tableCmd.ExecuteNonQuery();
+
+
             conn.Close();
             return true;
         }
