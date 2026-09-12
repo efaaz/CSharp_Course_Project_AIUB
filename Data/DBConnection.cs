@@ -10,7 +10,7 @@ namespace Restaurant_Management.Data
 
         // Efaz's String
 <<<<<<< Updated upstream
-         private static readonly string ConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Restaurant Managemnet;Integrated Security=True;";
+         //private static readonly string ConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Restaurant Managemnet;Integrated Security=True;";
 =======
         //private static readonly string ConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Restaurant Managemnet;Integrated Security=True;";
 >>>>>>> Stashed changes
