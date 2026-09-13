@@ -7,7 +7,7 @@ using Restaurant_Management.Models;
 
 namespace Restaurant_Management.Utilities
 {
-    internal class SessionManager
+    internal static class SessionManager
     {
         public static User CurrentUser { get; set; }
         public static void SessionLogin(User user)

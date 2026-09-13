@@ -46,12 +46,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnAddItem = new System.Windows.Forms.Button();
             this.txtTotalPrice = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.btnCreateOrder = new System.Windows.Forms.Button();
             this.btnRemoveItem = new System.Windows.Forms.Button();
+            this.btnAddItem = new System.Windows.Forms.Button();
+            this.btnCreateOrder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgMenuItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgSelectedItems)).BeginInit();
             this.SuspendLayout();
@@ -277,17 +277,6 @@
             this.label10.Text = "Select Quantity:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // btnAddItem
-            // 
-            this.btnAddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddItem.Location = new System.Drawing.Point(1104, 648);
-            this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(289, 61);
-            this.btnAddItem.TabIndex = 18;
-            this.btnAddItem.Text = "Add Item";
-            this.btnAddItem.UseVisualStyleBackColor = true;
-            this.btnAddItem.Click += new System.EventHandler(this.button1_Click);
-            // 
             // txtTotalPrice
             // 
             this.txtTotalPrice.BackColor = System.Drawing.SystemColors.Control;
@@ -325,17 +314,6 @@
             this.label12.Text = "Tk";
             this.label12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // btnCreateOrder
-            // 
-            this.btnCreateOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateOrder.Location = new System.Drawing.Point(931, 837);
-            this.btnCreateOrder.Name = "btnCreateOrder";
-            this.btnCreateOrder.Size = new System.Drawing.Size(273, 69);
-            this.btnCreateOrder.TabIndex = 22;
-            this.btnCreateOrder.Text = "Create Order";
-            this.btnCreateOrder.UseVisualStyleBackColor = true;
-            this.btnCreateOrder.Click += new System.EventHandler(this.button2_Click);
-            // 
             // btnRemoveItem
             // 
             this.btnRemoveItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -347,17 +325,39 @@
             this.btnRemoveItem.UseVisualStyleBackColor = true;
             this.btnRemoveItem.Click += new System.EventHandler(this.btnRemoveItem_Click);
             // 
+            // btnAddItem
+            // 
+            this.btnAddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddItem.Location = new System.Drawing.Point(1104, 643);
+            this.btnAddItem.Name = "btnAddItem";
+            this.btnAddItem.Size = new System.Drawing.Size(289, 61);
+            this.btnAddItem.TabIndex = 24;
+            this.btnAddItem.Text = "Add Item";
+            this.btnAddItem.UseVisualStyleBackColor = true;
+            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
+            // 
+            // btnCreateOrder
+            // 
+            this.btnCreateOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateOrder.Location = new System.Drawing.Point(914, 884);
+            this.btnCreateOrder.Name = "btnCreateOrder";
+            this.btnCreateOrder.Size = new System.Drawing.Size(273, 69);
+            this.btnCreateOrder.TabIndex = 25;
+            this.btnCreateOrder.Text = "Create Order";
+            this.btnCreateOrder.UseVisualStyleBackColor = true;
+            this.btnCreateOrder.Click += new System.EventHandler(this.btnCreateOrder_Click);
+            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2432, 1162);
-            this.Controls.Add(this.btnRemoveItem);
             this.Controls.Add(this.btnCreateOrder);
+            this.Controls.Add(this.btnAddItem);
+            this.Controls.Add(this.btnRemoveItem);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtTotalPrice);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtClickedItem);
@@ -406,11 +406,11 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button btnAddItem;
         private System.Windows.Forms.TextBox txtTotalPrice;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button btnCreateOrder;
         private System.Windows.Forms.Button btnRemoveItem;
+        private System.Windows.Forms.Button btnAddItem;
+        private System.Windows.Forms.Button btnCreateOrder;
     }
 }

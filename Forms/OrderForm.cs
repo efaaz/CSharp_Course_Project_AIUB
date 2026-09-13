@@ -10,9 +10,9 @@ namespace Restaurant_Management.Forms
 {
     public partial class OrderForm : Form
     {
-        private DataTable selectedItemsTable = new DataTable();
-        private DataTable menuItemsTable = new DataTable();
-        private OrderItem[] orderItems = new OrderItem[30];
+        private DataTable selectedItemsData = new DataTable();
+        private DataTable menuItemsData = new DataTable();
+        private OrderItem[] orderItemsArray = new OrderItem[30];
         
 
         private int itemCount = 0;
@@ -21,14 +21,14 @@ namespace Restaurant_Management.Forms
             InitializeComponent();
             ShowMenuItems();
             ShowOrderInfo();
-            selectedItemsTable.Columns.Add("Item Name");
-            selectedItemsTable.Columns.Add("Price");
-            selectedItemsTable.Columns.Add("Quantity");
-            selectedItemsTable.Columns.Add("Total");
+            selectedItemsData.Columns.Add("Item Name");
+            selectedItemsData.Columns.Add("Price");
+            selectedItemsData.Columns.Add("Quantity");
+            selectedItemsData.Columns.Add("Total");
             dgSelectedItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgSelectedItems.MultiSelect = false;
 
-            dgSelectedItems.DataSource = selectedItemsTable;
+            dgSelectedItems.DataSource = selectedItemsData;
            
         }
 
@@ -43,10 +43,10 @@ namespace Restaurant_Management.Forms
         {
             MenuService menuService = new MenuService();
 
-            menuItemsTable = menuService.GetAllMenuItems();
+            menuItemsData = menuService.GetAllMenuItems();
 
             dgMenuItems.AutoGenerateColumns = true;
-            dgMenuItems.DataSource = menuItemsTable;
+            dgMenuItems.DataSource = menuItemsData;
             dgMenuItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgMenuItems.MultiSelect = false;
 
@@ -54,45 +54,46 @@ namespace Restaurant_Management.Forms
 
         private void ClearOrderForm()
         {
-            // Clear selected-items DataTable
-            selectedItemsTable.Rows.Clear();
+            selectedItemsData.Rows.Clear();
 
-            // Clear the array
-            for (int i = 0; i < orderItems.Length; i++)
+            for (int i = 0; i < orderItemsArray.Length; i++)
             {
-                orderItems[i] = null;
+                orderItemsArray[i] = null;
             }
 
-            // Reset item count
             itemCount = 0;
-
-            // Reset total price
             txtTotalPrice.Text = "0";
-
-            // Clear selected menu item textbox
-            txtClickedItem.Clear();
-
-            // Clear quantity textbox
-            txtQuantity.Clear();
-
-            // Clear table selection if needed
-            cbSelectTable.SelectedIndex = -1;
+            txtClickedItem.Text = "";
+            txtQuantity.Text = "";
+            cbSelectTable.Text = "";
         }
         public Decimal CalculateTotalPrice()
         {
             Decimal totalPrice = 0;
             for (int i = 0; i < itemCount; i++)
             {
-                if (orderItems[i] == null)
+                if (orderItemsArray[i] == null)
                 {
                     continue;
                 }
-                totalPrice += orderItems[i].Price;
+                totalPrice += orderItemsArray[i].Price;
             }
             return totalPrice;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void dgMenuItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                MessageBox.Show("Please select a menu item.");
+                return;
+            }
+
+            string itemname = dgMenuItems.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtClickedItem.Text = itemname;
+
+        }
+        private void btnAddItem_Click(object sender, EventArgs e)
         {
             if (dgMenuItems.SelectedRows.Count <= 0)
             {
@@ -120,14 +121,9 @@ namespace Restaurant_Management.Forms
             item.Price = price*quantity;
 
 
-            // Store the object in the array
-            orderItems[itemCount] = item;
-
-            // Increase the number of actual items
+            orderItemsArray[itemCount] = item;
             itemCount++;
-
-            // Display the item in the selected-items grid
-            selectedItemsTable.Rows.Add(
+            selectedItemsData.Rows.Add(
                 itemName,
                 price,
                 quantity,
@@ -139,14 +135,28 @@ namespace Restaurant_Management.Forms
 
         }
 
-        private void dgMenuItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnRemoveItem_Click(object sender, EventArgs e)
         {
-            
-            string itemname = dgMenuItems.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtClickedItem.Text = itemname;
 
+            if (dgSelectedItems.SelectedRows.Count <= 0 || dgSelectedItems.SelectedRows[0].Index <0)
+            {
+                MessageBox.Show("Please select a item to remove.");
+                return;
+            }
+            
+            int selectedRowId = dgSelectedItems.SelectedRows[0].Index;
+
+            if (selectedRowId >= selectedItemsData.Rows.Count)
+            {
+                MessageBox.Show("Please select an item to remove.");
+                return;
+            }
+            selectedItemsData.Rows.RemoveAt(selectedRowId);
+            orderItemsArray[selectedRowId] = null;
+
+            txtTotalPrice.Text = CalculateTotalPrice().ToString();
         }
-        private void button2_Click(object sender, EventArgs e)
+        private void btnCreateOrder_Click(object sender, EventArgs e)
         {
             if (dgSelectedItems.SelectedRows.Count == 0)
             {
@@ -166,9 +176,8 @@ namespace Restaurant_Management.Forms
             order.Status = OrderStatus.Pending;
             order.OrderDate = DateTime.Now;
             order.TotalPrice = CalculateTotalPrice();
-            order.Items = orderItems;
+            order.Items = orderItemsArray;
 
-            MessageBox.Show("TableId: " + order.TableId + ", UserId: " + order.UserId +", Status: " + order.Status + ", OrderDate: " + order.OrderDate + ", TotalPrice: " + order.TotalPrice);
             bool result = orderService.PlaceOrder(order);
             if (!result)
             {
@@ -180,23 +189,6 @@ namespace Restaurant_Management.Forms
                 ClearOrderForm();
             }
         }
-        private void btnRemoveItem_Click(object sender, EventArgs e)
-        {
-
-            if (dgSelectedItems.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Please select a item to remove.");
-                return;
-            }
-            int selectedRowId = dgSelectedItems.SelectedRows[0].Index;
-            selectedItemsTable.Rows.RemoveAt(selectedRowId);
-            orderItems[selectedRowId] = null;
-
-            txtTotalPrice.Text = CalculateTotalPrice().ToString();
-        }
-
-
-
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -285,5 +277,7 @@ namespace Restaurant_Management.Forms
         {
 
         }
+
+      
     }
 }

@@ -10,6 +10,7 @@ namespace Restaurant_Management.Enums
     {
         Pending,
         Preparing,
-        Ready
+        Ready,
+        Billed,
     }
 }
