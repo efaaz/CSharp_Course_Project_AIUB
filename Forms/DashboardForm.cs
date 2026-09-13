@@ -1,4 +1,5 @@
 ﻿using Restaurant_Management.Forms;
+using Restaurant_Management.Models;
 using Restaurant_Management.Services;
 using Restaurant_Management.Utilities;
 using System;
@@ -31,12 +32,19 @@ namespace Restaurant_Management
         {
             DashBoardService dashBoardService = new DashBoardService();
             int orders = dashBoardService.GetOrders();
+            if (orders == null) {
+                MessageBox.Show(dashBoardService.GetErrorMassege());
+            }
             txtOrders.Text = orders.ToString();
         }
         public void ShowTotalOrders()
         {
             DashBoardService dashBoardService = new DashBoardService();
             int TodaysOrders = dashBoardService.GetOrders();
+            if (TodaysOrders == null)
+            {
+                MessageBox.Show(dashBoardService.GetErrorMassege());
+            }
             txtTotalOrders.Text = TodaysOrders.ToString();
         }
 
@@ -44,6 +52,10 @@ namespace Restaurant_Management
         {
             DashBoardService dashBoardService = new DashBoardService();
             int pendings = dashBoardService.GetPendingOrders();
+            if (pendings == null)
+            {
+                MessageBox.Show(dashBoardService.GetErrorMassege());
+            }
             txtPending.Text = pendings.ToString();
         }
 
@@ -51,6 +63,10 @@ namespace Restaurant_Management
         {
             DashBoardService dashBoardService = new DashBoardService();
             int preparing = dashBoardService.GetPreparingOrders();
+            if (preparing == null)
+            {
+                MessageBox.Show(dashBoardService.GetErrorMassege());
+            }
             txtPreparing.Text = preparing.ToString();
         }
 
@@ -58,6 +74,10 @@ namespace Restaurant_Management
         {
             DashBoardService dashBoardService = new DashBoardService();
             double TotalSales = dashBoardService.GetTotalSales();
+            if (TotalSales == null)
+            {
+                MessageBox.Show(dashBoardService.GetErrorMassege());
+            }
             txtTotalSale.Text = "TK." + TotalSales.ToString("0.00");
 
         }
