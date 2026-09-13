@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\DashBoardRepository.cs" />
     <Compile Include="Data\DBConnection.cs" />
     <Compile Include="Data\KitchenRepository.cs" />
     <Compile Include="Data\MenuRepository.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Authentication.cs" />
+    <Compile Include="Services\DashBoardService.cs" />
     <Compile Include="Services\KitchenService.cs" />
     <Compile Include="Services\MenuService.cs" />
     <Compile Include="Services\OrderService.cs" />
