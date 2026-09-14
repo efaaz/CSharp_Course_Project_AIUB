@@ -99,6 +99,7 @@
             this.txt_pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_pass.Location = new System.Drawing.Point(608, 420);
             this.txt_pass.Name = "txt_pass";
+            this.txt_pass.PasswordChar = '*';
             this.txt_pass.Size = new System.Drawing.Size(410, 44);
             this.txt_pass.TabIndex = 5;
             this.txt_pass.TextChanged += new System.EventHandler(this.txt_pass_TextChanged);
