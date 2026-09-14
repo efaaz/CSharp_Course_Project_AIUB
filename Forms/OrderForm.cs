@@ -12,6 +12,7 @@ namespace Restaurant_Management.Forms
     {
         private DataTable selectedItemsData = new DataTable();
         private DataTable menuItemsData = new DataTable();
+        private DataTable tableInfoData = new DataTable();
         private OrderItem[] orderItemsArray = new OrderItem[30];
         
 
@@ -21,6 +22,7 @@ namespace Restaurant_Management.Forms
             InitializeComponent();
             ShowMenuItems();
             ShowOrderInfo();
+            ShowTableInfo();
             selectedItemsData.Columns.Add("Item Name");
             selectedItemsData.Columns.Add("Price");
             selectedItemsData.Columns.Add("Quantity");
@@ -29,9 +31,19 @@ namespace Restaurant_Management.Forms
             dgSelectedItems.MultiSelect = false;
 
             dgSelectedItems.DataSource = selectedItemsData;
-           
+             
+
         }
 
+        public void ShowTableInfo()
+        {
+            OrderService orderService = new OrderService();
+            tableInfoData = orderService.GetTableInfo();
+            dgTableInfo.AutoGenerateColumns = true;
+            dgTableInfo.DataSource = tableInfoData;
+            dgTableInfo.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgTableInfo.MultiSelect = false;
+        }
         public void ShowOrderInfo()
         {
             txtUsername.Text = SessionManager.CurrentUser.Username;
@@ -65,7 +77,8 @@ namespace Restaurant_Management.Forms
             txtTotalPrice.Text = "0";
             txtClickedItem.Text = "";
             txtQuantity.Text = "";
-            cbSelectTable.Text = "";
+            txtSelectTableId.Text = "";
+            ShowTableInfo();
         }
         public Decimal CalculateTotalPrice()
         {
@@ -158,12 +171,12 @@ namespace Restaurant_Management.Forms
         }
         private void btnCreateOrder_Click(object sender, EventArgs e)
         {
-            if (dgSelectedItems.SelectedRows.Count == 0)
+            if (selectedItemsData.Rows.Count == 0)
             {
                 MessageBox.Show("Please Add items to the order.");
                 return;
             }
-            if (cbSelectTable.Text == "")
+            if (txtSelectTableId.Text == "")
             {
                 MessageBox.Show("Please select table first");
                 return;
@@ -171,7 +184,7 @@ namespace Restaurant_Management.Forms
           
             OrderService orderService = new OrderService();
             Order order = new Order();
-            order.TableId = Convert.ToInt32(cbSelectTable.Text);
+            order.TableId = Convert.ToInt32(txtSelectTableId.Text);
             order.UserId = SessionManager.CurrentUser.UserId;
             order.Status = OrderStatus.Pending;
             order.OrderDate = DateTime.Now;
@@ -278,6 +291,33 @@ namespace Restaurant_Management.Forms
 
         }
 
-      
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            DashboardForm dashboardForm = new DashboardForm();
+            dashboardForm.Show();
+            this.Hide();
+        }
+
+        private void txtSelectTableId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgTableInfo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                MessageBox.Show("Please select a table item.");
+                return;
+            }
+
+            string tableId = dgTableInfo.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtSelectTableId.Text = tableId;
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

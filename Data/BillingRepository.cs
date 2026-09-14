@@ -44,9 +44,15 @@ namespace Restaurant_Management.Data
             string Query = "insert into PaymentDetails (OrderId,PaymentMethod,ServiceCharge,Vat,TotalAmount) values(" + pd.OrderId + ", ' " + pd.PaymentMethod +" '," + pd.ServiceCharge +" , " + pd.Vat + ", " +pd.TotalAmount+"  )";
             SqlCommand cmd = new SqlCommand(Query,conn);
             cmd.ExecuteNonQuery();
+
             string UpdateQuery =" UPDATE Orders SET Status = 'Billed' WHERE OrderId = " + pd.OrderId;
             SqlCommand cmdd = new SqlCommand(UpdateQuery, conn);
             cmdd.ExecuteNonQuery();
+
+            string tableQuery = "UPDATE TablesInfo SET Status = 'Available' WHERE TableId = " + pd.TableId;
+            SqlCommand tableCmd = new SqlCommand(tableQuery, conn);
+            tableCmd.ExecuteNonQuery();
+
             return true;
         }
     }

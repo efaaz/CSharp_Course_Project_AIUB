@@ -1,16 +1,7 @@
 ﻿using Restaurant_Management.Forms;
-using Restaurant_Management.Models;
 using Restaurant_Management.Services;
 using Restaurant_Management.Utilities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics.Contracts;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Restaurant_Management
@@ -130,6 +121,9 @@ namespace Restaurant_Management
 
         private void btnReports_Click(object sender, EventArgs e)
         {
+            ReportForm reportForm = new ReportForm();
+            reportForm.Show();
+            this.Hide();
 
         }
 

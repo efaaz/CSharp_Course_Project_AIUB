@@ -42,7 +42,7 @@ namespace Restaurant_Management.Data
             return dt;
         }
 
-        public void AddTable(RestaurantTable table)
+        public bool AddTable(RestaurantTable table)
         {
             SqlConnection conn = DBConnection.GetConnection();
             conn.Open();
@@ -50,6 +50,8 @@ namespace Restaurant_Management.Data
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.ExecuteNonQuery();
             conn.Close();
+
+            return true;
         }
     }
 }

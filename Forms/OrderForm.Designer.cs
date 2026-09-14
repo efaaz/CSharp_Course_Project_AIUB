@@ -36,8 +36,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbSelectTable = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dgMenuItems = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
@@ -52,8 +50,14 @@
             this.btnRemoveItem = new System.Windows.Forms.Button();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.btnCreateOrder = new System.Windows.Forms.Button();
+            this.btnDashboard = new System.Windows.Forms.Button();
+            this.dgTableInfo = new System.Windows.Forms.DataGridView();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtSelectTableId = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgMenuItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgSelectedItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgTableInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -155,37 +159,11 @@
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(28, 487);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(215, 37);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Select Table:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // cbSelectTable
-            // 
-            this.cbSelectTable.FormattingEnabled = true;
-            this.cbSelectTable.Items.AddRange(new object[] {
-            "100",
-            "101",
-            "102",
-            "103"});
-            this.cbSelectTable.Location = new System.Drawing.Point(249, 487);
-            this.cbSelectTable.Name = "cbSelectTable";
-            this.cbSelectTable.Size = new System.Drawing.Size(156, 33);
-            this.cbSelectTable.TabIndex = 9;
-            this.cbSelectTable.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(506, 139);
+            this.label7.Location = new System.Drawing.Point(1413, 139);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(221, 42);
             this.label7.TabIndex = 10;
@@ -197,7 +175,7 @@
             // 
             this.dgMenuItems.AllowUserToDeleteRows = false;
             this.dgMenuItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgMenuItems.Location = new System.Drawing.Point(513, 208);
+            this.dgMenuItems.Location = new System.Drawing.Point(1420, 227);
             this.dgMenuItems.Name = "dgMenuItems";
             this.dgMenuItems.ReadOnly = true;
             this.dgMenuItems.RowHeadersWidth = 82;
@@ -210,7 +188,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(1463, 139);
+            this.label8.Location = new System.Drawing.Point(1413, 659);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(277, 42);
             this.label8.TabIndex = 12;
@@ -221,7 +199,7 @@
             // dgSelectedItems
             // 
             this.dgSelectedItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgSelectedItems.Location = new System.Drawing.Point(1470, 208);
+            this.dgSelectedItems.Location = new System.Drawing.Point(1420, 726);
             this.dgSelectedItems.Name = "dgSelectedItems";
             this.dgSelectedItems.RowHeadersWidth = 82;
             this.dgSelectedItems.RowTemplate.Height = 33;
@@ -234,7 +212,7 @@
             this.txtClickedItem.BackColor = System.Drawing.SystemColors.Control;
             this.txtClickedItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtClickedItem.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtClickedItem.Location = new System.Drawing.Point(800, 648);
+            this.txtClickedItem.Location = new System.Drawing.Point(981, 743);
             this.txtClickedItem.Multiline = true;
             this.txtClickedItem.Name = "txtClickedItem";
             this.txtClickedItem.ReadOnly = true;
@@ -246,7 +224,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(525, 649);
+            this.label9.Location = new System.Drawing.Point(682, 743);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(213, 37);
             this.label9.TabIndex = 14;
@@ -259,7 +237,7 @@
             this.txtQuantity.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuantity.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtQuantity.Location = new System.Drawing.Point(800, 740);
+            this.txtQuantity.Location = new System.Drawing.Point(981, 823);
             this.txtQuantity.Multiline = true;
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(202, 40);
@@ -270,7 +248,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(525, 743);
+            this.label10.Location = new System.Drawing.Point(649, 823);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(257, 37);
             this.label10.TabIndex = 16;
@@ -282,11 +260,11 @@
             this.txtTotalPrice.BackColor = System.Drawing.SystemColors.Control;
             this.txtTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalPrice.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtTotalPrice.Location = new System.Drawing.Point(2058, 649);
+            this.txtTotalPrice.Location = new System.Drawing.Point(981, 904);
             this.txtTotalPrice.Multiline = true;
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.ReadOnly = true;
-            this.txtTotalPrice.Size = new System.Drawing.Size(100, 40);
+            this.txtTotalPrice.Size = new System.Drawing.Size(202, 40);
             this.txtTotalPrice.TabIndex = 20;
             this.txtTotalPrice.Text = "0";
             this.txtTotalPrice.TextChanged += new System.EventHandler(this.textBox1_TextChanged_2);
@@ -295,7 +273,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(1861, 652);
+            this.label11.Location = new System.Drawing.Point(704, 907);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(191, 37);
             this.label11.TabIndex = 19;
@@ -307,7 +285,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(2164, 657);
+            this.label12.Location = new System.Drawing.Point(1189, 909);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(50, 33);
             this.label12.TabIndex = 21;
@@ -317,7 +295,7 @@
             // btnRemoveItem
             // 
             this.btnRemoveItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveItem.Location = new System.Drawing.Point(1104, 719);
+            this.btnRemoveItem.Location = new System.Drawing.Point(981, 1004);
             this.btnRemoveItem.Name = "btnRemoveItem";
             this.btnRemoveItem.Size = new System.Drawing.Size(289, 61);
             this.btnRemoveItem.TabIndex = 23;
@@ -328,7 +306,7 @@
             // btnAddItem
             // 
             this.btnAddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddItem.Location = new System.Drawing.Point(1104, 643);
+            this.btnAddItem.Location = new System.Drawing.Point(661, 1004);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(289, 61);
             this.btnAddItem.TabIndex = 24;
@@ -339,7 +317,7 @@
             // btnCreateOrder
             // 
             this.btnCreateOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateOrder.Location = new System.Drawing.Point(914, 884);
+            this.btnCreateOrder.Location = new System.Drawing.Point(65, 1004);
             this.btnCreateOrder.Name = "btnCreateOrder";
             this.btnCreateOrder.Size = new System.Drawing.Size(273, 69);
             this.btnCreateOrder.TabIndex = 25;
@@ -347,11 +325,74 @@
             this.btnCreateOrder.UseVisualStyleBackColor = true;
             this.btnCreateOrder.Click += new System.EventHandler(this.btnCreateOrder_Click);
             // 
+            // btnDashboard
+            // 
+            this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.Location = new System.Drawing.Point(2131, 35);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(239, 61);
+            this.btnDashboard.TabIndex = 26;
+            this.btnDashboard.Text = "Dashboard";
+            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
+            // dgTableInfo
+            // 
+            this.dgTableInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgTableInfo.Location = new System.Drawing.Point(579, 230);
+            this.dgTableInfo.Name = "dgTableInfo";
+            this.dgTableInfo.RowHeadersWidth = 82;
+            this.dgTableInfo.RowTemplate.Height = 33;
+            this.dgTableInfo.Size = new System.Drawing.Size(765, 400);
+            this.dgTableInfo.TabIndex = 27;
+            this.dgTableInfo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgTableInfo_CellContentClick);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(654, 664);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(252, 37);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "Selected Table:";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label13.Click += new System.EventHandler(this.label13_Click);
+            // 
+            // txtSelectTableId
+            // 
+            this.txtSelectTableId.BackColor = System.Drawing.SystemColors.Control;
+            this.txtSelectTableId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSelectTableId.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtSelectTableId.Location = new System.Drawing.Point(981, 661);
+            this.txtSelectTableId.Multiline = true;
+            this.txtSelectTableId.Name = "txtSelectTableId";
+            this.txtSelectTableId.ReadOnly = true;
+            this.txtSelectTableId.Size = new System.Drawing.Size(202, 40);
+            this.txtSelectTableId.TabIndex = 29;
+            this.txtSelectTableId.TextChanged += new System.EventHandler(this.txtSelectTableId_TextChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(572, 139);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(323, 42);
+            this.label14.TabIndex = 30;
+            this.label14.Text = "Table Information";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2432, 1162);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.txtSelectTableId);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.dgTableInfo);
+            this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.btnCreateOrder);
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.btnRemoveItem);
@@ -366,8 +407,6 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dgMenuItems);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.cbSelectTable);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtDate);
@@ -381,6 +420,7 @@
             this.Text = "OrderForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgMenuItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgSelectedItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgTableInfo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -396,8 +436,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbSelectTable;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dgMenuItems;
         private System.Windows.Forms.Label label8;
@@ -412,5 +450,10 @@
         private System.Windows.Forms.Button btnRemoveItem;
         private System.Windows.Forms.Button btnAddItem;
         private System.Windows.Forms.Button btnCreateOrder;
+        private System.Windows.Forms.Button btnDashboard;
+        private System.Windows.Forms.DataGridView dgTableInfo;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtSelectTableId;
+        private System.Windows.Forms.Label label14;
     }
 }

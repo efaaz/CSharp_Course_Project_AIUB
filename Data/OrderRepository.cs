@@ -1,6 +1,7 @@
 ﻿using Restaurant_Management.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,19 @@ namespace Restaurant_Management.Data
 {
     internal class OrderRepository
     {
+        public DataTable GetTableInfo()
+        {
+            SqlConnection conn = DBConnection.GetConnection();
+            conn.Open();
+            string query = "SELECT TableId as 'Table ID', TableNumber as 'Table Number', Status FROM TablesInfo";
+            SqlDataAdapter adp = new SqlDataAdapter(query, conn);
+            DataSet ds = new DataSet();
+            adp.Fill(ds);
+            DataTable dt = ds.Tables[0];
 
+            conn.Close();
+            return dt;
+        }
         public bool AddOrder(Order order)
         {
             SqlConnection conn = DBConnection.GetConnection();

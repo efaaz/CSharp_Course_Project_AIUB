@@ -2,12 +2,13 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using Restaurant_Management.Models;
 
 namespace Restaurant_Management.Data
 {
     internal class ReportRepository
     {
-        public ReportModel GenerateSalesReport()
+        public Report GenerateSalesReport()
         {
             SqlConnection conn = DBConnection.GetConnection();
             conn.Open();
@@ -25,19 +26,19 @@ namespace Restaurant_Management.Data
 
             string totalSalesQuery = "SELECT SUM(TotalAmount) FROM PaymentDetails";
             SqlCommand cmd3 = new SqlCommand(totalSalesQuery, conn);
-            decimal totalSales = Convert.ToDecimal(cmd3.ExecuteScalar());
+            double totalSales = Convert.ToDouble(cmd3.ExecuteScalar());
 
-            ReportModel report = new ReportModel
-            {
-                TotalOrders = totalOrders,
-                TotalCompleteOrders = totalCompleteOrders,
-                TotalSales = totalSales
-            };
+            Report report = new Report();
+
+            report.TotalOrders = totalOrders;
+            report. TotalCompleteOrders = totalCompleteOrders;
+            report.TotalSales = totalSales;
+
 
             return report;
         }
 
-        public ReportModel   GenerateCustomReport(DateTime startDate, DateTime endDate)
+        public Report GenerateCustomReport(DateTime startDate, DateTime endDate)
         {
             SqlConnection conn = DBConnection.GetConnection();
             conn.Open();
@@ -53,7 +54,7 @@ namespace Restaurant_Management.Data
             SqlCommand cmd2 = new SqlCommand(customSalesQuery, conn);
             int totalSales = Convert.ToInt32(cmd2.ExecuteScalar());
 
-            ReportModel report = new ReportModel
+            Report report = new Report
             {
                 TotalOrders = totalOrders,
                 TotalCompleteOrders = totalCompleteOrders,

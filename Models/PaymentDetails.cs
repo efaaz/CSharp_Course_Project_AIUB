@@ -15,5 +15,7 @@ namespace Restaurant_Management.Models
         public double ServiceCharge { get; set; }
         public double Vat { get; set; }
         public double TotalAmount { get; set; }
+
+        public int TableId { get; set; }
     }
 }

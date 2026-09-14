@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Restaurant_Management.Data;
+using Restaurant_Management.Models;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Restaurant_Management.Models;
-using Restaurant_Management.Data;
 
 namespace Restaurant_Management.Services
 {
@@ -28,6 +29,12 @@ namespace Restaurant_Management.Services
         {
             return ErrorMessage;
         }
+        public DataTable GetTableInfo()
+        {
+            DataTable tableData = orderRepository.GetTableInfo();
+            return tableData;
+        }
+
 
         public bool PlaceOrder(Order order)
         { 

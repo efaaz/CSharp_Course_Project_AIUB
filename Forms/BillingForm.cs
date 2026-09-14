@@ -17,6 +17,7 @@ namespace Restaurant_Management.Forms
         private DataTable OrderData = new DataTable();
         private DataTable ItemData = new DataTable();
         private int orderId;
+        private int tableId;
         public BillingForm()
         {
             InitializeComponent();
@@ -136,6 +137,7 @@ namespace Restaurant_Management.Forms
             paymentDetails.ServiceCharge = Convert.ToDouble(txtServiceCharge.Text);
             paymentDetails.Vat = Convert.ToDouble(txtVat.Text);
             paymentDetails.TotalAmount = Convert.ToDouble(txtGrandTotal.Text);
+            paymentDetails.TableId = tableId;
             BillingService service = new BillingService();
             bool result = service.GenerateBill(paymentDetails);
             if (!result)
@@ -176,6 +178,7 @@ namespace Restaurant_Management.Forms
                 return;
             }
             orderId = Convert.ToInt32(dgOrderDetails.Rows[e.RowIndex].Cells[0].Value.ToString());
+            tableId = Convert.ToInt32(dgOrderDetails.Rows[e.RowIndex].Cells[1].Value.ToString());
             BillingService billingService = new BillingService();
             ItemData = billingService.GetItemDetails(orderId);
             dgItemDetails.DataSource = ItemData;
