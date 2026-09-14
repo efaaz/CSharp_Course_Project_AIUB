@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Restaurant_Management.Models;
 
 namespace Restaurant_Management.Data
 {
@@ -15,17 +11,39 @@ namespace Restaurant_Management.Data
             SqlConnection conn = DBConnection.GetConnection();
             conn.Open();
             string query = "SELECT * FROM MenuItems ";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+
+            SqlDataAdapter adp = new SqlDataAdapter(query, conn);
             DataSet ds = new DataSet();
             adp.Fill(ds);
             DataTable dt = ds.Tables[0];
             return dt;
         }
-        public bool IsAvailable(int itemId)
+
+        public bool AddMenuItem(MenuItem menu)
         {
-            // query to database checking if a itemid=5 is available
-            return true; 
+            SqlConnection conn = DBConnection.GetConnection();
+            conn.Open();
+
+            string query = "INSERT INTO MenuItems (ItemName, ItemPrice, ItemStatus) VALUES ('"+ menu.ItemName + "', '"+ menu.ItemPrice + "', '"+ menu.ItemStatus + "')";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+
+            return true;
+        }
+
+        public bool UpdateMenuItem(MenuItem menu)
+        {
+            SqlConnection conn = DBConnection.GetConnection();
+            conn.Open();
+            string query = "UPDATE MenuItems SET ItemName = '" + menu.ItemName + "', ItemPrice = '" + menu.ItemPrice + "', ItemStatus = '" + menu.ItemStatus + "' WHERE ItemId = '" + menu.ItemId + "'";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            return true;
         }
     }
 }
