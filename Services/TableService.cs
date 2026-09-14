@@ -28,7 +28,7 @@ namespace Restaurant_Management.Services
         public bool AddTable(RestaurantTable table)
         {
 
-            if (tableRepository.findTableByTableNumber(table.TableNumber))
+            if (tableRepository.IsTableNumberExists(table.TableNumber))
             {
                 errorMessage = "Table number: " + table.TableNumber + " is used choose different table number!";
                 return false;
@@ -46,7 +46,7 @@ namespace Restaurant_Management.Services
 
         public bool UpdateTableInfo(RestaurantTable table)
         {
-            if (tableRepository.findTableByTableNumber(table.TableNumber))
+            if (tableRepository.IsTableNumberExists(table.TableNumber))
             {
                 errorMessage = "Table number: " + table.TableNumber + "is used choose different table number!";
                 return false;

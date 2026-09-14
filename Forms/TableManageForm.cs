@@ -2,15 +2,8 @@
 using Restaurant_Management.Models;
 using Restaurant_Management.Enums;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Restaurant_Management.Models;
 
 namespace Restaurant_Management.Forms
 {
@@ -40,22 +33,20 @@ namespace Restaurant_Management.Forms
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            TableService tableService = new TableService();
-            RestaurantTable table = new RestaurantTable();
-
-            if(txtStatus.Text != "Available" && txtStatus.Text != "Occupied")
+            if(txtNumber.Text == "" || txtCapacity.Text == "" || cbStatus.SelectedIndex == -1)
             {
-                MessageBox.Show("Invalid table status. Please enter 'Available' or 'Occupied'.");
+                MessageBox.Show("Please fill all the fields.");
                 return;
             }
-
+            TableService tableService = new TableService();
+            RestaurantTable table = new RestaurantTable();
             table.TableNumber = Convert.ToInt32(txtNumber.Text);
             table.Capacity = Convert.ToInt32(txtCapacity.Text);
-            if (txtStatus.Text == "Available")
+            if (cbStatus.Text == "Available")
             {
                 table.TableStatus = TableStatus.Available;
             }
-            else if (txtStatus.Text == "Occupied")
+            else if (cbStatus.Text == "Occupied")
             {
                 table.TableStatus = TableStatus.Occupied;
             }
@@ -69,7 +60,8 @@ namespace Restaurant_Management.Forms
             {
                 MessageBox.Show("Table added successfully.");
                 ShowTableInfo();
-                txtStatus.Text = txtNumber.Text = txtCapacity.Text = "";
+                txtNumber.Text = txtCapacity.Text = "";
+                cbStatus.SelectedIndex = -1;
             }
 
 
@@ -78,23 +70,23 @@ namespace Restaurant_Management.Forms
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+
             TableService tableService = new TableService();
             RestaurantTable table = new RestaurantTable();
-
-
-            if (txtStatus.Text != "Available" && txtStatus.Text != "Occupied")
+            if (txtNumber.Text == "" || txtCapacity.Text == "" || cbStatus.SelectedIndex == -1)
             {
-                MessageBox.Show("Invalid table status. Please enter 'Available' or 'Occupied'.");
+                MessageBox.Show("Please Select an Item first");
                 return;
             }
+
             table.TableId = tableId;
             table.TableNumber = Convert.ToInt32(txtNumber.Text);
             table.Capacity = Convert.ToInt32(txtCapacity.Text);
-            if (txtStatus.Text == "Available")
+            if (cbStatus.Text == "Available")
             {
                 table.TableStatus = TableStatus.Available;
             }
-            else if (txtStatus.Text == "Occupied")
+            else if (cbStatus.Text == "Occupied")
             {
                 table.TableStatus = TableStatus.Occupied;
             }
@@ -108,7 +100,8 @@ namespace Restaurant_Management.Forms
             {
                 MessageBox.Show("Table updated successfully.");
                 ShowTableInfo();
-                txtStatus.Text = txtNumber.Text = txtCapacity.Text = "";
+                txtNumber.Text = txtCapacity.Text = "";
+                cbStatus.SelectedIndex = -1;
             }
 
         }
@@ -128,11 +121,24 @@ namespace Restaurant_Management.Forms
                 tableId = Convert.ToInt32(dgTable.Rows[e.RowIndex].Cells[0].Value.ToString());
                 txtNumber.Text = dgTable.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtCapacity.Text = dgTable.Rows[e.RowIndex].Cells[2].Value.ToString();
-                txtStatus.Text = dgTable.Rows[e.RowIndex].Cells[3].Value.ToString();
+                string status = dgTable.Rows[e.RowIndex].Cells[3].Value.ToString();
+                if (status == "Available")
+                {
+                    cbStatus.SelectedIndex = 0;
+                }
+                if (status == "Occupied")
+                {
+                    cbStatus.SelectedIndex = 1;
+                }
             }
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

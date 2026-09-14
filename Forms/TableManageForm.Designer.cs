@@ -40,7 +40,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
-            this.txtStatus = new System.Windows.Forms.TextBox();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,7 +103,7 @@
             this.txtNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumber.Location = new System.Drawing.Point(350, 333);
             this.txtNumber.Name = "txtNumber";
-            this.txtNumber.Size = new System.Drawing.Size(166, 40);
+            this.txtNumber.Size = new System.Drawing.Size(208, 40);
             this.txtNumber.TabIndex = 5;
             // 
             // txtCapacity
@@ -111,7 +111,7 @@
             this.txtCapacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCapacity.Location = new System.Drawing.Point(350, 412);
             this.txtCapacity.Name = "txtCapacity";
-            this.txtCapacity.Size = new System.Drawing.Size(166, 40);
+            this.txtCapacity.Size = new System.Drawing.Size(208, 40);
             this.txtCapacity.TabIndex = 7;
             // 
             // label5
@@ -167,23 +167,28 @@
             this.btnDashboard.UseVisualStyleBackColor = true;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
-            // txtStatus
+            // cbStatus
             // 
-            this.txtStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStatus.Location = new System.Drawing.Point(350, 496);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(166, 40);
-            this.txtStatus.TabIndex = 9;
+            this.cbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Items.AddRange(new object[] {
+            "Available",
+            "Occupied"});
+            this.cbStatus.Location = new System.Drawing.Point(350, 488);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(208, 45);
+            this.cbStatus.TabIndex = 13;
+            this.cbStatus.SelectedIndexChanged += new System.EventHandler(this.cbStatus_SelectedIndexChanged);
             // 
             // TableManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1790, 1024);
+            this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtCapacity);
             this.Controls.Add(this.label5);
@@ -215,6 +220,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDashboard;
-        private System.Windows.Forms.TextBox txtStatus;
+        private System.Windows.Forms.ComboBox cbStatus;
     }
 }

@@ -85,7 +85,9 @@ namespace Restaurant_Management
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-
+            MenuManageForm menuManageForm = new MenuManageForm();
+            menuManageForm.Show();
+            this.Hide();
         }
 
         private void btnTables_Click(object sender, EventArgs e)
@@ -101,11 +103,6 @@ namespace Restaurant_Management
             OrderForm orderForm = new OrderForm();
             orderForm.Show();
             this.Hide();
-        }
-
-        private void btnOrderStatus_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnKitchen_Click(object sender, EventArgs e)

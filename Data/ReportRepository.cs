@@ -20,7 +20,7 @@ namespace Restaurant_Management.Data
             int totalOrders = Convert.ToInt32(cmd.ExecuteScalar());
 
 
-            string totalCompeleteOrderquery = "SELECT COUNT(*) FROM Orders WHERE OrderStatus = 'Completed'";
+            string totalCompeleteOrderquery = "SELECT COUNT(*) FROM Orders WHERE Status = 'Completed'";
             SqlCommand cmd2 = new SqlCommand(totalCompeleteOrderquery, conn);
             int totalCompleteOrders = Convert.ToInt32(cmd2.ExecuteScalar());
 
@@ -42,11 +42,11 @@ namespace Restaurant_Management.Data
         {
             SqlConnection conn = DBConnection.GetConnection();
             conn.Open();
-            string customOrderQuery = "SELECT COUNT(*) FROM Orders WHERE OrderDate WHERE OrderDate >= '" + startDate + "'AND OrderDate <'" + endDate + "'";
+            string customOrderQuery = "SELECT COUNT(*) FROM Orders WHERE OrderDate >= '" + startDate + "' AND OrderDate < '" + endDate + "'";
             SqlCommand cmd = new SqlCommand(customOrderQuery, conn);
             int totalOrders = Convert.ToInt32(cmd.ExecuteScalar());
 
-            string customCompleteOrderQuery = "SELECT COUNT(*) FROM Orders WHERE OrderStatus = 'Completed' AND OrderDate >= '" + startDate + "' AND OrderDate < '" + endDate + "'";
+            string customCompleteOrderQuery = "SELECT COUNT(*) FROM Orders WHERE Status = 'Completed' AND OrderDate >= '" + startDate + "' AND OrderDate < '" + endDate + "'";
             SqlCommand cmd1 = new SqlCommand(customCompleteOrderQuery, conn);
             int totalCompleteOrders = Convert.ToInt32(cmd1.ExecuteScalar());
 
@@ -65,11 +65,11 @@ namespace Restaurant_Management.Data
 
         }
 
-        public DataTable GetOrderTable(DateTime startDate, DateTime endDate)
+        public DataTable GetRecentOrderPaymentDetails()
         {
             SqlConnection conn = DBConnection.GetConnection();
             conn.Open();
-            string query = "SELECT * FROM Orders WHERE OrderDate >= '" + startDate + "' AND OrderDate < '" + endDate + "'";
+            string query = "SELECT p.PaymentId, p.OrderId, p.PaymentMethod, p.TotalAmount, o.OrderDate FROM PaymentDetails p INNER JOIN Orders o ON p.OrderId = o.OrderId ORDER BY o.OrderDate DESC";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();

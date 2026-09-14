@@ -1,6 +1,7 @@
-﻿using System.Data;
+﻿using Restaurant_Management.Models;
+using System;
+using System.Data;
 using System.Data.SqlClient;
-using Restaurant_Management.Models;
 
 namespace Restaurant_Management.Data
 {
@@ -19,7 +20,7 @@ namespace Restaurant_Management.Data
             return dt;
         }
 
-        public bool AddMenuItem(MenuItem menu)
+        public bool AddMenuItem(MenuItems menu)
         {
             SqlConnection conn = DBConnection.GetConnection();
             conn.Open();
@@ -35,7 +36,25 @@ namespace Restaurant_Management.Data
             return true;
         }
 
-        public bool UpdateMenuItem(MenuItem menu)
+        public bool IsMenuItemExists(string itemName)
+        {
+            SqlConnection conn = DBConnection.GetConnection();
+            conn.Open();
+            string query = "SELECT COUNT(*) FROM MenuItems WHERE ItemName = '" + itemName + "'";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            conn.Close();
+
+            if (count > 0)
+            {
+                return true;
+            }
+
+
+            return false;
+        }
+
+        public bool UpdateMenuItem(MenuItems menu)
         {
             SqlConnection conn = DBConnection.GetConnection();
             conn.Open();

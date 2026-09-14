@@ -55,7 +55,7 @@ namespace Restaurant_Management.Data
             return true;
         }
 
-        public bool findTableByTableNumber(int tableNumber)
+        public bool IsTableNumberExists(int tableNumber)
         {
             SqlConnection conn = DBConnection.GetConnection();
             conn.Open();
