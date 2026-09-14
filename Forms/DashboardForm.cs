@@ -1,6 +1,7 @@
 ﻿using Restaurant_Management.Forms;
 using Restaurant_Management.Services;
 using Restaurant_Management.Utilities;
+using Restaurant_Management.Enums;
 using System;
 using System.Windows.Forms;
 
@@ -12,11 +13,47 @@ namespace Restaurant_Management
         {
             InitializeComponent();
             txtUserName.Text = "Welcome , " + SessionManager.CurrentUser.Username;
+            SetRolePermissions();
             ShowOrders();
             ShowPendingOrders();
             ShowPreparingOrders();
             ShowTotalOrders();
             ShowTotalSale();
+        }
+
+        private void SetRolePermissions()
+        {
+            UserRole role = SessionManager.CurrentUser.Role;
+
+            if (role == UserRole.Chef)
+            {
+                btnTables.Visible = false;
+                btnCreateOrder.Visible = false;
+                btnBilling.Visible = false;
+                btnReports.Visible = false;
+
+                btnMenu.Visible  = true;
+                btnKitchen.Visible = true;
+            }
+            else if (role == UserRole.Cashier)
+            {
+                btnMenu.Visible = true;
+                btnTables.Visible = true;
+                btnCreateOrder.Visible = true;
+                btnBilling.Visible = true;
+                btnReports.Visible = false;
+
+                btnKitchen.Visible = false;
+            }
+            else if (role == UserRole.Manager)
+            {
+                btnMenu.Visible = true;
+                btnTables.Visible = true;
+                btnCreateOrder.Visible = true;
+                btnKitchen.Visible = true;
+                btnBilling.Visible = true;
+                btnReports.Visible = true;
+            }
         }
 
         public void ShowOrders()

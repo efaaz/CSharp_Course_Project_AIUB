@@ -51,7 +51,7 @@
             this.lblTitle.Location = new System.Drawing.Point(293, 32);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(382, 51);
+            this.lblTitle.Size = new System.Drawing.Size(597, 79);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Registration Page";
             // 
@@ -62,7 +62,7 @@
             this.lblName.Location = new System.Drawing.Point(307, 121);
             this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(96, 29);
+            this.lblName.Size = new System.Drawing.Size(147, 42);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "Name : ";
             this.lblName.Click += new System.EventHandler(this.lblName_Click);
@@ -74,7 +74,7 @@
             this.lblEmail.Location = new System.Drawing.Point(307, 184);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(92, 29);
+            this.lblEmail.Size = new System.Drawing.Size(140, 42);
             this.lblEmail.TabIndex = 2;
             this.lblEmail.Text = "Email : ";
             this.lblEmail.Click += new System.EventHandler(this.lblEmail_Click);
@@ -86,7 +86,7 @@
             this.lblRole.Location = new System.Drawing.Point(321, 245);
             this.lblRole.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(82, 29);
+            this.lblRole.Size = new System.Drawing.Size(125, 42);
             this.lblRole.TabIndex = 3;
             this.lblRole.Text = "Role : ";
             this.lblRole.Click += new System.EventHandler(this.lblRole_Click);
@@ -98,7 +98,7 @@
             this.lblPass.Location = new System.Drawing.Point(265, 307);
             this.lblPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPass.Name = "lblPass";
-            this.lblPass.Size = new System.Drawing.Size(138, 29);
+            this.lblPass.Size = new System.Drawing.Size(213, 42);
             this.lblPass.TabIndex = 4;
             this.lblPass.Text = "Password : ";
             this.lblPass.Click += new System.EventHandler(this.lblPass_Click);
@@ -109,7 +109,7 @@
             this.txtName.Location = new System.Drawing.Point(407, 121);
             this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(249, 34);
+            this.txtName.Size = new System.Drawing.Size(249, 49);
             this.txtName.TabIndex = 5;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
@@ -119,7 +119,7 @@
             this.txtEmail.Location = new System.Drawing.Point(407, 184);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(249, 34);
+            this.txtEmail.Size = new System.Drawing.Size(249, 49);
             this.txtEmail.TabIndex = 6;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
@@ -130,7 +130,7 @@
             this.txtPass.Margin = new System.Windows.Forms.Padding(2);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
-            this.txtPass.Size = new System.Drawing.Size(249, 34);
+            this.txtPass.Size = new System.Drawing.Size(249, 49);
             this.txtPass.TabIndex = 7;
             this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
             // 
@@ -145,7 +145,7 @@
             this.cbRole.Location = new System.Drawing.Point(407, 245);
             this.cbRole.Margin = new System.Windows.Forms.Padding(2);
             this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(249, 37);
+            this.cbRole.Size = new System.Drawing.Size(249, 50);
             this.cbRole.TabIndex = 8;
             this.cbRole.SelectedIndexChanged += new System.EventHandler(this.cbRole_SelectedIndexChanged);
             // 
@@ -169,7 +169,7 @@
             this.lblErrorName.Location = new System.Drawing.Point(404, 159);
             this.lblErrorName.Margin = new System.Windows.Forms.Padding(2);
             this.lblErrorName.Name = "lblErrorName";
-            this.lblErrorName.Size = new System.Drawing.Size(247, 16);
+            this.lblErrorName.Size = new System.Drawing.Size(432, 25);
             this.lblErrorName.TabIndex = 10;
             this.lblErrorName.Text = "                                                            ";
             this.lblErrorName.Click += new System.EventHandler(this.lblErrorName_Click);
@@ -181,7 +181,7 @@
             this.lblErrorEmail.ForeColor = System.Drawing.Color.Crimson;
             this.lblErrorEmail.Location = new System.Drawing.Point(404, 220);
             this.lblErrorEmail.Name = "lblErrorEmail";
-            this.lblErrorEmail.Size = new System.Drawing.Size(239, 16);
+            this.lblErrorEmail.Size = new System.Drawing.Size(418, 25);
             this.lblErrorEmail.TabIndex = 11;
             this.lblErrorEmail.Text = "                                                          ";
             this.lblErrorEmail.Click += new System.EventHandler(this.lblErrorEmail_Click);
@@ -193,7 +193,7 @@
             this.lblErrorRole.ForeColor = System.Drawing.Color.Crimson;
             this.lblErrorRole.Location = new System.Drawing.Point(404, 284);
             this.lblErrorRole.Name = "lblErrorRole";
-            this.lblErrorRole.Size = new System.Drawing.Size(231, 16);
+            this.lblErrorRole.Size = new System.Drawing.Size(404, 25);
             this.lblErrorRole.TabIndex = 12;
             this.lblErrorRole.Text = "                                                        ";
             // 
@@ -204,13 +204,13 @@
             this.lblErrorPass.ForeColor = System.Drawing.Color.Crimson;
             this.lblErrorPass.Location = new System.Drawing.Point(404, 343);
             this.lblErrorPass.Name = "lblErrorPass";
-            this.lblErrorPass.Size = new System.Drawing.Size(235, 16);
+            this.lblErrorPass.Size = new System.Drawing.Size(411, 25);
             this.lblErrorPass.TabIndex = 13;
             this.lblErrorPass.Text = "                                                         ";
             // 
             // RegisterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1009, 459);
             this.Controls.Add(this.lblErrorPass);
