@@ -1,16 +1,28 @@
 ﻿using Restaurant_Management.Models;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Restaurant_Management.Data
 {
     internal class OrderRepository
     {
+        public bool IsAvailable(int TableId)
+        {
+            SqlConnection conn = DBConnection.GetConnection();
+            conn.Open();
+            string query = "SELECT Status FROM TablesInfo WHERE TableId = '" + TableId + "'";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            string status = cmd.ExecuteScalar().ToString();
+
+            conn.Close();
+            if (status == "Available")
+            {
+                return true;
+            }
+            return false;
+        }
         public DataTable GetTableInfo()
         {
             SqlConnection conn = DBConnection.GetConnection();
@@ -29,12 +41,11 @@ namespace Restaurant_Management.Data
             SqlConnection conn = DBConnection.GetConnection();
             conn.Open();
 
-            string orderQuery = "insert into Orders (TableId, UserId, OrderDate, Status, TotalPrice) values(" + order.TableId + ", " + order.UserId + ", " + "'" + order.OrderDate.ToString("yyyy-MM-dd HH:mm:ss") + "', " + "'" + order.Status + "', " +order.TotalPrice +")";
+            string orderQuery = "INSERT INTO Orders (TableId, UserId, OrderDate, Status, TotalPrice) VALUES (" + order.TableId + ", " + order.UserId + ", " + "'" + order.OrderDate.ToString("yyyy-MM-dd HH:mm:ss") + "', " + "'" + order.Status + "', " +order.TotalPrice +")";
             SqlCommand cmd = new SqlCommand(orderQuery, conn);
 
             cmd.ExecuteNonQuery();
 
-            // Get the newly inserted OrderId
             string idQuery = "SELECT SCOPE_IDENTITY()";
 
             SqlCommand idCommand = new SqlCommand(idQuery, conn);
@@ -46,21 +57,14 @@ namespace Restaurant_Management.Data
                 {
                     continue;
                 }
-                string itemQuery =
-                    "INSERT INTO OrderItems " +
-                    "(OrderId, ItemId, Quantity, Price) " +
-                    "VALUES (" +
-                    orderId + ", " +
-                    item.ItemId + ", " +
-                    item.Quantity + ", " +
-                    item.Price + ")";
+                string itemQuery = "INSERT INTO OrderItems (OrderId, ItemId, Quantity, Price) VALUES (" + orderId + ", " + item.ItemId + ", " + item.Quantity + ", " + item.Price + ")";
 
                 SqlCommand itemCmd = new SqlCommand(itemQuery, conn);
 
                 itemCmd.ExecuteNonQuery();
             }
 
-            string tableQuery = "UPDATE TablesInfo SET Status = 'Occupied' WHERE TableId = " + order.TableId;
+            string tableQuery = "UPDATE TablesInfo SET Status = 'Occupied' WHERE TableId = '" + order.TableId + "'";
             SqlCommand tableCmd = new SqlCommand(tableQuery, conn);
             tableCmd.ExecuteNonQuery();
 

@@ -16,7 +16,7 @@ namespace Restaurant_Management.Data
         {
             SqlConnection conn = DBConnection.GetConnection();
             conn.Open();
-            string OrderQuery = "select OrderId as 'Order ID', TableId as 'Table ID', OrderDate as 'Date', Status as 'Status' from Orders where Status = 'Ready'";
+            string OrderQuery = "SELECT OrderId as 'Order ID', TableId as 'Table ID', OrderDate as 'Date', Status as 'Status' from Orders where Status = 'Ready'";
             SqlDataAdapter adp = new SqlDataAdapter(OrderQuery, conn);
             DataSet ds = new DataSet();
             adp.Fill(ds);
@@ -41,11 +41,12 @@ namespace Restaurant_Management.Data
         {
             SqlConnection conn = DBConnection.GetConnection();
             conn.Open();
+
             string Query = "insert into PaymentDetails (OrderId,PaymentMethod,ServiceCharge,Vat,TotalAmount) values(" + pd.OrderId + ", ' " + pd.PaymentMethod +" '," + pd.ServiceCharge +" , " + pd.Vat + ", " +pd.TotalAmount+"  )";
             SqlCommand cmd = new SqlCommand(Query,conn);
             cmd.ExecuteNonQuery();
 
-            string UpdateQuery =" UPDATE Orders SET Status = 'Billed' WHERE OrderId = " + pd.OrderId;
+            string UpdateQuery = "UPDATE Orders SET Status = 'Billed' WHERE OrderId = " + pd.OrderId;
             SqlCommand cmdd = new SqlCommand(UpdateQuery, conn);
             cmdd.ExecuteNonQuery();
 

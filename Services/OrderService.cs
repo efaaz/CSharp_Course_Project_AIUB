@@ -1,27 +1,20 @@
 ﻿using Restaurant_Management.Data;
 using Restaurant_Management.Models;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Restaurant_Management.Services
 {
     internal class OrderService
     {
         public string ErrorMessage { get; set; }
-        public TableRepository tableRepository;
-        public MenuRepository menuRepository;
 
-        public OrderRepository orderRepository = new OrderRepository();
+        public OrderRepository orderRepository;
 
         public OrderService()
         {
             ErrorMessage = "";
-            tableRepository = new TableRepository();
-            menuRepository = new MenuRepository();
+            orderRepository = new OrderRepository();
 
         }
 
@@ -38,7 +31,7 @@ namespace Restaurant_Management.Services
 
         public bool PlaceOrder(Order order)
         { 
-            if (!tableRepository.IsAvailable(order.TableId))
+            if (!orderRepository.IsAvailable(order.TableId))
             {
                 ErrorMessage = "The selected table is Occupied, please choose another table.";
                 return false;
@@ -52,7 +45,7 @@ namespace Restaurant_Management.Services
             }
 
             
-            return true; // Order placed successfully
+            return true;
         }
     }
 }

@@ -12,22 +12,6 @@ namespace Restaurant_Management.Data
 {
     internal class TableRepository
     {
-        public bool IsAvailable(int TableId)
-        {
-            SqlConnection conn = DBConnection.GetConnection();
-            conn.Open();
-            string query = "SELECT Status FROM TablesInfo WHERE TableId = '" + TableId + "'";
-            SqlCommand cmd = new SqlCommand(query, conn);
-
-            string status = cmd.ExecuteScalar().ToString();
-
-            conn.Close();
-            if (status == "Available")
-            {
-                return true;
-            }
-            return false;
-        }
 
         public DataTable GetTableInfo()
         {
@@ -59,7 +43,7 @@ namespace Restaurant_Management.Data
         {
             SqlConnection conn = DBConnection.GetConnection();
             conn.Open();
-            string query = "SELECT COUNT(*) FROM TablesInfo WHERE tableNumber = '" + tableNumber + "'";
+            string query = "SELECT COUNT(*) FROM TablesInfo WHERE TableNumber = '" + tableNumber + "'";
 
 
             SqlCommand cmd = new SqlCommand(query, conn);

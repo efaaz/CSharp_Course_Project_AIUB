@@ -11,7 +11,7 @@ namespace Restaurant_Management.Data
         {
             SqlConnection conn = DBConnection.GetConnection();
             conn.Open();
-            string query = "SELECT * FROM MenuItems ";
+            string query = "SELECT * FROM MenuItems";
 
             SqlDataAdapter adp = new SqlDataAdapter(query, conn);
             DataSet ds = new DataSet();

@@ -24,8 +24,7 @@ namespace Restaurant_Management.Data
             SqlConnection conn = DBConnection.GetConnection();
             conn.Open();
 
-            string query =
-                "SELECT UserId, UserName, Email, Role FROM Users WHERE UserName = '" + username + "' AND Password = '" + password + "'";
+            string query = "SELECT UserId, UserName, Email, Role FROM Users WHERE UserName = '" + username + "' AND Password = '" + password + "'";
 
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
