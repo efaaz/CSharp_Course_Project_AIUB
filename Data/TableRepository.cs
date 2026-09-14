@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.PerformanceData;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,6 +52,37 @@ namespace Restaurant_Management.Data
             cmd.ExecuteNonQuery();
             conn.Close();
 
+            return true;
+        }
+
+        public bool findTableByTableNumber(int tableNumber)
+        {
+            SqlConnection conn = DBConnection.GetConnection();
+            conn.Open();
+            string query = "SELECT COUNT(*) FROM TablesInfo WHERE tableNumber = '" + tableNumber + "'";
+
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            conn.Close();
+
+            if (count > 0)
+            {
+                return true;
+            }
+
+            
+            return false;
+        }
+
+        public bool UpdateTableInfo(RestaurantTable table)
+        {
+            SqlConnection conn = DBConnection.GetConnection();
+            conn.Open();
+            string query = "UPDATE TablesInfo SET TableNumber = '" + table.TableNumber + "', Capacity = '" + table.Capacity + "', Status = '" + table.TableStatus.ToString() + "' WHERE TableId = '" + table.TableId + "'";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
             return true;
         }
     }

@@ -90,6 +90,9 @@ namespace Restaurant_Management
 
         private void btnTables_Click(object sender, EventArgs e)
         {
+            TableManageForm tableManageForm = new TableManageForm();
+            tableManageForm.Show();
+            this.Hide();
 
         }
 

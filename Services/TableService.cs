@@ -1,12 +1,7 @@
 ﻿using Restaurant_Management.Data;
 using Restaurant_Management.Models;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Restaurant_Management.Services
 {
@@ -32,9 +27,14 @@ namespace Restaurant_Management.Services
 
         public bool AddTable(RestaurantTable table)
         {
-            
-            
-                bool result = tableRepository.AddTable(table);
+
+            if (tableRepository.findTableByTableNumber(table.TableNumber))
+            {
+                errorMessage = "Table number: " + table.TableNumber + " is used choose different table number!";
+                return false;
+            }
+
+            bool result = tableRepository.AddTable(table);
             if (!result)
             {
                 errorMessage = "Failed to add table";
@@ -43,5 +43,23 @@ namespace Restaurant_Management.Services
 
             return true;
         }
+
+        public bool UpdateTableInfo(RestaurantTable table)
+        {
+            if (tableRepository.findTableByTableNumber(table.TableNumber))
+            {
+                errorMessage = "Table number: " + table.TableNumber + "is used choose different table number!";
+                return false;
+            }
+            bool result = tableRepository.UpdateTableInfo(table);
+            if (!result)
+            {
+                errorMessage = "Failed to update table info";
+                return false;
+            }
+
+            return true;
+        }
+
     }
 }
