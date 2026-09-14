@@ -52,6 +52,7 @@
     <Compile Include="Data\KitchenRepository.cs" />
     <Compile Include="Data\MenuRepository.cs" />
     <Compile Include="Data\OrderRepository.cs" />
+    <Compile Include="Data\ReportRepository.cs" />
     <Compile Include="Data\TableRepository.cs" />
     <Compile Include="Data\UserRepository.cs" />
     <Compile Include="Enums\ItemStatus.cs" />
