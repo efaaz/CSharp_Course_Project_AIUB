@@ -123,7 +123,9 @@ namespace Restaurant_Management
 
         private void btnBilling_Click(object sender, EventArgs e)
         {
-
+            BillingForm billingForm = new BillingForm();
+            billingForm.Show();
+            this.Hide();
         }
 
         private void btnReports_Click(object sender, EventArgs e)

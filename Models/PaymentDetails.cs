@@ -11,9 +11,9 @@ namespace Restaurant_Management.Models
     {
         public int PaymentId { get; set; }
         public int OrderId { get; set; }
-        public PaymentMethod PaymentMethod { get; set; }
-        public decimal ServiceCharge { get; set; }
-        public decimal Vat { get; set; }
-        public decimal TotalAmount { get; set; }
+        public String PaymentMethod { get; set; }
+        public double ServiceCharge { get; set; }
+        public double Vat { get; set; }
+        public double TotalAmount { get; set; }
     }
 }
