@@ -45,7 +45,7 @@ namespace Restaurant_Management.Data
         {
             SqlConnection conn = DBConnection.GetConnection();
             conn.Open();
-            string TotalSale = "select ISNULL(sum(TotalPrice),2) from orders";
+            string TotalSale = "select ISNULL(sum(TotalPrice),0) from orders";
             SqlCommand cmd = new SqlCommand(TotalSale, conn);
             double totalSale = Convert.ToDouble(cmd.ExecuteScalar());
             return totalSale;

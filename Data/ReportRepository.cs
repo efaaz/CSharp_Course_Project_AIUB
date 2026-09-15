@@ -20,7 +20,7 @@ namespace Restaurant_Management.Data
             int totalOrders = Convert.ToInt32(cmd.ExecuteScalar());
 
 
-            string totalCompeleteOrderquery = "SELECT COUNT(*) FROM Orders WHERE Status = 'Completed'";
+            string totalCompeleteOrderquery = "SELECT COUNT(*) FROM Orders WHERE Status = 'Billed'";
             SqlCommand cmd2 = new SqlCommand(totalCompeleteOrderquery, conn);
             int totalCompleteOrders = Convert.ToInt32(cmd2.ExecuteScalar());
 
@@ -46,13 +46,21 @@ namespace Restaurant_Management.Data
             SqlCommand cmd = new SqlCommand(customOrderQuery, conn);
             int totalOrders = Convert.ToInt32(cmd.ExecuteScalar());
 
-            string customCompleteOrderQuery = "SELECT COUNT(*) FROM Orders WHERE Status = 'Completed' AND OrderDate >= '" + startDate + "' AND OrderDate < '" + endDate + "'";
+            string customCompleteOrderQuery = "SELECT COUNT(*) FROM Orders WHERE Status = 'Billed' AND OrderDate >= '" + startDate + "' AND OrderDate < '" + endDate + "'";
             SqlCommand cmd1 = new SqlCommand(customCompleteOrderQuery, conn);
             int totalCompleteOrders = Convert.ToInt32(cmd1.ExecuteScalar());
 
             string customSalesQuery = "SELECT SUM(TotalPrice) FROM Orders WHERE OrderDate >= '" + startDate + "' AND OrderDate < '"     + endDate + "'";
             SqlCommand cmd2 = new SqlCommand(customSalesQuery, conn);
-            int totalSales = Convert.ToInt32(cmd2.ExecuteScalar());
+            double totalSales = 0;
+            if (cmd2.ExecuteScalar() != null && cmd2.ExecuteScalar() != DBNull.Value)
+            {
+                totalSales = Convert.ToDouble(cmd2.ExecuteScalar());
+            }
+            else
+            {
+                totalSales = 0;
+            }
 
             Report report = new Report
             {
