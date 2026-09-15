@@ -59,7 +59,7 @@ namespace Restaurant_Management
         public void ShowOrders()
         {
             DashBoardService dashBoardService = new DashBoardService();
-            string orders = dashBoardService.GetOrders().ToString();
+            string orders = dashBoardService.GetOrders();
             if (orders == null) {
                 MessageBox.Show(dashBoardService.GetErrorMassege());
             }
@@ -68,7 +68,7 @@ namespace Restaurant_Management
         public void ShowTotalOrders()
         {
             DashBoardService dashBoardService = new DashBoardService();
-            string TodaysOrders = dashBoardService.GetOrders().ToString();
+            string TodaysOrders = dashBoardService.GetOrders();
             if (TodaysOrders == null)
             {
                 MessageBox.Show(dashBoardService.GetErrorMassege());
@@ -79,7 +79,7 @@ namespace Restaurant_Management
         public void ShowPendingOrders()
         {
             DashBoardService dashBoardService = new DashBoardService();
-            string pendings = dashBoardService.GetPendingOrders().ToString();
+            string pendings = dashBoardService.GetPendingOrders();
             if (pendings == null)
             {
                 MessageBox.Show(dashBoardService.GetErrorMassege());
@@ -90,7 +90,7 @@ namespace Restaurant_Management
         public void ShowPreparingOrders()
         {
             DashBoardService dashBoardService = new DashBoardService();
-            string preparing = dashBoardService.GetPreparingOrders().ToString();
+            string preparing = dashBoardService.GetPreparingOrders();
             if (preparing == null)
             {
                 MessageBox.Show(dashBoardService.GetErrorMassege());
@@ -101,7 +101,7 @@ namespace Restaurant_Management
         public void ShowTotalSale()
         {
             DashBoardService dashBoardService = new DashBoardService();
-            string TotalSales = dashBoardService.GetTotalSales().ToString("0.00");
+            string TotalSales = dashBoardService.GetTotalSales();
             if (TotalSales == null)
             {
                 MessageBox.Show(dashBoardService.GetErrorMassege());

@@ -20,42 +20,42 @@ namespace Restaurant_Management.Services
         {
             return ErrorMassege;
         }
-        public int GetOrders()
+        public string GetOrders()
         {
-            int orders = dashBoardRepository.GetOrders();
+            string orders = dashBoardRepository.GetOrders().ToString();
             if (orders == null)
             {
                 ErrorMassege = "Failed to get order count.";
-                return 0;
+             
             }
             return orders;
         }
 
-        public int GetPendingOrders()
+        public string GetPendingOrders()
         {
-            int pending = dashBoardRepository.GetPendingOrders();
+            string pending = dashBoardRepository.GetPendingOrders().ToString();
             if (pending == null)
             {
                 ErrorMassege = "Failed to get pending orders count.";
-                return 0;
+               
             }
             return pending;
         }
 
-        public int GetPreparingOrders()
+        public string GetPreparingOrders()
         {
-            int preparing = dashBoardRepository.GetPreparingOrders();
+            string preparing = dashBoardRepository.GetPreparingOrders().ToString();
             if (preparing == null)
             {
                 ErrorMassege = "Failed to get the preparing orders count";
-                return 0;
+                
             }
             return preparing;
         }
 
-        public double GetTotalSales()
+        public string GetTotalSales()
         {
-            double TotalSales = dashBoardRepository.GetTotalSales();
+            string TotalSales = dashBoardRepository.GetTotalSales().ToString("0.00");
             if (TotalSales == null)
             {
                 ErrorMassege = "Failed to get the total sales value";
