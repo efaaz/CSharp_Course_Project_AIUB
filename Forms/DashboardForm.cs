@@ -59,54 +59,54 @@ namespace Restaurant_Management
         public void ShowOrders()
         {
             DashBoardService dashBoardService = new DashBoardService();
-            int orders = dashBoardService.GetOrders();
+            string orders = dashBoardService.GetOrders().ToString();
             if (orders == null) {
                 MessageBox.Show(dashBoardService.GetErrorMassege());
             }
-            txtOrders.Text = orders.ToString();
+            txtOrders.Text = orders;
         }
         public void ShowTotalOrders()
         {
             DashBoardService dashBoardService = new DashBoardService();
-            int TodaysOrders = dashBoardService.GetOrders();
+            string TodaysOrders = dashBoardService.GetOrders().ToString();
             if (TodaysOrders == null)
             {
                 MessageBox.Show(dashBoardService.GetErrorMassege());
             }
-            txtTotalOrders.Text = TodaysOrders.ToString();
+            txtTotalOrders.Text = TodaysOrders;
         }
 
         public void ShowPendingOrders()
         {
             DashBoardService dashBoardService = new DashBoardService();
-            int pendings = dashBoardService.GetPendingOrders();
+            string pendings = dashBoardService.GetPendingOrders().ToString();
             if (pendings == null)
             {
                 MessageBox.Show(dashBoardService.GetErrorMassege());
             }
-            txtPending.Text = pendings.ToString();
+            txtPending.Text = pendings;
         }
 
         public void ShowPreparingOrders()
         {
             DashBoardService dashBoardService = new DashBoardService();
-            int preparing = dashBoardService.GetPreparingOrders();
+            string preparing = dashBoardService.GetPreparingOrders().ToString();
             if (preparing == null)
             {
                 MessageBox.Show(dashBoardService.GetErrorMassege());
             }
-            txtPreparing.Text = preparing.ToString();
+            txtPreparing.Text = preparing;
         }
 
         public void ShowTotalSale()
         {
             DashBoardService dashBoardService = new DashBoardService();
-            double TotalSales = dashBoardService.GetTotalSales();
+            string TotalSales = dashBoardService.GetTotalSales().ToString("0.00");
             if (TotalSales == null)
             {
                 MessageBox.Show(dashBoardService.GetErrorMassege());
             }
-            txtTotalSale.Text = "TK." + TotalSales.ToString("0.00");
+            txtTotalSale.Text = "TK." + TotalSales;
 
         }
 
