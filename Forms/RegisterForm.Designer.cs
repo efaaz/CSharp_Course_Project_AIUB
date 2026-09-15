@@ -48,10 +48,10 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(293, 32);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTitle.Location = new System.Drawing.Point(195, 20);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(597, 79);
+            this.lblTitle.Size = new System.Drawing.Size(382, 51);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Registration Page";
             // 
@@ -59,10 +59,10 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(307, 121);
-            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblName.Location = new System.Drawing.Point(185, 92);
+            this.lblName.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(147, 42);
+            this.lblName.Size = new System.Drawing.Size(96, 29);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "Name : ";
             this.lblName.Click += new System.EventHandler(this.lblName_Click);
@@ -71,10 +71,10 @@
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(307, 184);
-            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEmail.Location = new System.Drawing.Point(189, 152);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(140, 42);
+            this.lblEmail.Size = new System.Drawing.Size(92, 29);
             this.lblEmail.TabIndex = 2;
             this.lblEmail.Text = "Email : ";
             this.lblEmail.Click += new System.EventHandler(this.lblEmail_Click);
@@ -83,10 +83,10 @@
             // 
             this.lblRole.AutoSize = true;
             this.lblRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRole.Location = new System.Drawing.Point(321, 245);
-            this.lblRole.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRole.Location = new System.Drawing.Point(199, 221);
+            this.lblRole.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(125, 42);
+            this.lblRole.Size = new System.Drawing.Size(82, 29);
             this.lblRole.TabIndex = 3;
             this.lblRole.Text = "Role : ";
             this.lblRole.Click += new System.EventHandler(this.lblRole_Click);
@@ -95,10 +95,10 @@
             // 
             this.lblPass.AutoSize = true;
             this.lblPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPass.Location = new System.Drawing.Point(265, 307);
-            this.lblPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPass.Location = new System.Drawing.Point(155, 298);
+            this.lblPass.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblPass.Name = "lblPass";
-            this.lblPass.Size = new System.Drawing.Size(213, 42);
+            this.lblPass.Size = new System.Drawing.Size(138, 29);
             this.lblPass.TabIndex = 4;
             this.lblPass.Text = "Password : ";
             this.lblPass.Click += new System.EventHandler(this.lblPass_Click);
@@ -106,31 +106,31 @@
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(407, 121);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtName.Location = new System.Drawing.Point(299, 89);
+            this.txtName.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(249, 49);
+            this.txtName.Size = new System.Drawing.Size(167, 34);
             this.txtName.TabIndex = 5;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(407, 184);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEmail.Location = new System.Drawing.Point(299, 147);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(249, 49);
+            this.txtEmail.Size = new System.Drawing.Size(167, 34);
             this.txtEmail.TabIndex = 6;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // txtPass
             // 
             this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPass.Location = new System.Drawing.Point(407, 307);
-            this.txtPass.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPass.Location = new System.Drawing.Point(299, 293);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
-            this.txtPass.Size = new System.Drawing.Size(249, 49);
+            this.txtPass.Size = new System.Drawing.Size(167, 34);
             this.txtPass.TabIndex = 7;
             this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
             // 
@@ -142,20 +142,20 @@
             "Chef",
             "Manager",
             "Cashier"});
-            this.cbRole.Location = new System.Drawing.Point(407, 245);
-            this.cbRole.Margin = new System.Windows.Forms.Padding(2);
+            this.cbRole.Location = new System.Drawing.Point(299, 218);
+            this.cbRole.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(249, 50);
+            this.cbRole.Size = new System.Drawing.Size(167, 37);
             this.cbRole.TabIndex = 8;
             this.cbRole.SelectedIndexChanged += new System.EventHandler(this.cbRole_SelectedIndexChanged);
             // 
             // btnReg
             // 
             this.btnReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReg.Location = new System.Drawing.Point(407, 372);
-            this.btnReg.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReg.Location = new System.Drawing.Point(271, 365);
+            this.btnReg.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.btnReg.Name = "btnReg";
-            this.btnReg.Size = new System.Drawing.Size(194, 47);
+            this.btnReg.Size = new System.Drawing.Size(167, 51);
             this.btnReg.TabIndex = 9;
             this.btnReg.Text = "Register";
             this.btnReg.UseVisualStyleBackColor = true;
@@ -166,10 +166,10 @@
             this.lblErrorName.AutoSize = true;
             this.lblErrorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrorName.ForeColor = System.Drawing.Color.Crimson;
-            this.lblErrorName.Location = new System.Drawing.Point(404, 159);
-            this.lblErrorName.Margin = new System.Windows.Forms.Padding(2);
+            this.lblErrorName.Location = new System.Drawing.Point(296, 125);
+            this.lblErrorName.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.lblErrorName.Name = "lblErrorName";
-            this.lblErrorName.Size = new System.Drawing.Size(432, 25);
+            this.lblErrorName.Size = new System.Drawing.Size(247, 16);
             this.lblErrorName.TabIndex = 10;
             this.lblErrorName.Text = "                                                            ";
             this.lblErrorName.Click += new System.EventHandler(this.lblErrorName_Click);
@@ -179,9 +179,10 @@
             this.lblErrorEmail.AutoSize = true;
             this.lblErrorEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrorEmail.ForeColor = System.Drawing.Color.Crimson;
-            this.lblErrorEmail.Location = new System.Drawing.Point(404, 220);
+            this.lblErrorEmail.Location = new System.Drawing.Point(300, 182);
+            this.lblErrorEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblErrorEmail.Name = "lblErrorEmail";
-            this.lblErrorEmail.Size = new System.Drawing.Size(418, 25);
+            this.lblErrorEmail.Size = new System.Drawing.Size(239, 16);
             this.lblErrorEmail.TabIndex = 11;
             this.lblErrorEmail.Text = "                                                          ";
             this.lblErrorEmail.Click += new System.EventHandler(this.lblErrorEmail_Click);
@@ -191,28 +192,31 @@
             this.lblErrorRole.AutoSize = true;
             this.lblErrorRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrorRole.ForeColor = System.Drawing.Color.Crimson;
-            this.lblErrorRole.Location = new System.Drawing.Point(404, 284);
+            this.lblErrorRole.Location = new System.Drawing.Point(300, 259);
+            this.lblErrorRole.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblErrorRole.Name = "lblErrorRole";
-            this.lblErrorRole.Size = new System.Drawing.Size(404, 25);
+            this.lblErrorRole.Size = new System.Drawing.Size(231, 16);
             this.lblErrorRole.TabIndex = 12;
             this.lblErrorRole.Text = "                                                        ";
+            this.lblErrorRole.Click += new System.EventHandler(this.lblErrorRole_Click);
             // 
             // lblErrorPass
             // 
             this.lblErrorPass.AutoSize = true;
             this.lblErrorPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrorPass.ForeColor = System.Drawing.Color.Crimson;
-            this.lblErrorPass.Location = new System.Drawing.Point(404, 343);
+            this.lblErrorPass.Location = new System.Drawing.Point(300, 328);
+            this.lblErrorPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblErrorPass.Name = "lblErrorPass";
-            this.lblErrorPass.Size = new System.Drawing.Size(411, 25);
+            this.lblErrorPass.Size = new System.Drawing.Size(235, 16);
             this.lblErrorPass.TabIndex = 13;
             this.lblErrorPass.Text = "                                                         ";
             // 
             // RegisterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1009, 459);
+            this.ClientSize = new System.Drawing.Size(825, 482);
             this.Controls.Add(this.lblErrorPass);
             this.Controls.Add(this.lblErrorRole);
             this.Controls.Add(this.lblErrorEmail);
@@ -228,7 +232,7 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "RegisterForm";
             this.Text = "s";
             this.Load += new System.EventHandler(this.RegisterForm_Load);

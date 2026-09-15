@@ -67,6 +67,11 @@ namespace Restaurant_Management.Forms
 
         }
 
+        private void lblErrorRole_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void lblPass_Click(object sender, EventArgs e)
         {
 
@@ -93,6 +98,11 @@ namespace Restaurant_Management.Forms
             {
                 lblErrorEmail.Text = "Please Enter Your Email!";
             }
+            if (!email.EndsWith("@gmail.com") && !email.EndsWith("@email.com")) 
+            {
+                lblErrorEmail.Text = "Enter Valid Email";
+                return;
+            }
             if (role == "")
             {
                 lblErrorRole.Text = "Please Enter Select Your Role!";
@@ -101,7 +111,7 @@ namespace Restaurant_Management.Forms
             {
                 lblErrorPass.Text = "Please Enter A Strong Password!";
             }
-            if (name == "" || email == "" || role == "" || pass.Length < 8)
+            if (name == "" || email == "" || role == "" || pass.Length < 8 )
             {
                 return;
             }
@@ -125,6 +135,8 @@ namespace Restaurant_Management.Forms
             user.Password = pass;
             Authentication service = new Authentication();
             service.Register(user);
+
+            MessageBox.Show("Registration Successfull.");
 
             LoginForm login = new LoginForm();
             login.Show();
